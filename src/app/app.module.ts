@@ -11,6 +11,8 @@ import { HomepageComponent } from './components/core/homepage/homepage.component
 import { ListAlbumComponent } from './components/feature/list-album/list-album.component';
 import { WhatNewComponent } from './components/feature/what-new/what-new.component';
 import {WeekTopComponent} from "./components/feature/week-top/week-top.component";
+import {AppRoutingModule} from "./app-routing.module";
+import {APP_BASE_HREF} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -26,9 +28,10 @@ import {WeekTopComponent} from "./components/feature/week-top/week-top.component
   ],
   imports: [
     BrowserModule,
-    RouterModule
+    RouterModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
