@@ -13,6 +13,7 @@ import { WhatNewComponent } from './components/feature/what-new/what-new.compone
 import {WeekTopComponent} from "./components/feature/week-top/week-top.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {APP_BASE_HREF} from "@angular/common";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {APP_BASE_HREF} from "@angular/common";
   imports: [
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [{provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]
