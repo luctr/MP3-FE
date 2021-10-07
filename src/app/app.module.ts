@@ -14,6 +14,16 @@ import {WeekTopComponent} from "./components/feature/week-top/week-top.component
 import {AppRoutingModule} from "./app-routing.module";
 import {APP_BASE_HREF} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
+import { PageComponent } from './components/page/page.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import { SingerComponent } from './components/singer/singer.component';
+import { SingerCreateComponent } from './components/singer/singer-create/singer-create.component';
+import { SingerEditComponent } from './components/singer/singer-edit/singer-edit.component';
+import { SingerDeleteComponent } from './components/singer/singer-delete/singer-delete.component';
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
+import { FilebaseComponent } from './filebase/filebase.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +35,22 @@ import {HttpClientModule} from "@angular/common/http";
     HomepageComponent,
     ListAlbumComponent,
     WhatNewComponent,
-    WeekTopComponent
+    WeekTopComponent,
+    PageComponent,
+    SingerComponent,
+    SingerCreateComponent,
+    SingerEditComponent,
+    SingerDeleteComponent,
+    FilebaseComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud")
   ],
   providers: [{provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]

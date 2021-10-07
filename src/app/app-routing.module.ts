@@ -1,15 +1,43 @@
-
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {HomepageComponent} from "./components/core/homepage/homepage.component";
+import {PageComponent} from "./components/page/page.component";
+import {SingerComponent} from "./components/singer/singer.component";
+import {SingerCreateComponent} from "./components/singer/singer-create/singer-create.component";
+import {SingerEditComponent} from "./components/singer/singer-edit/singer-edit.component";
+import {SingerDeleteComponent} from "./components/singer/singer-delete/singer-delete.component";
 
 
 const routes: Routes = [
-  {path: '', component: HomepageComponent}
+  {
+    path: '',
+    component: HomepageComponent
+  },
+  {
+  path: 'page/:id',
+  component: PageComponent
+  },
+  {
+  path: 'singer/list',
+  component: SingerComponent
+  },
+  {
+  path: 'singer/create',
+  component: SingerCreateComponent
+  },
+  {
+  path: 'singer/edit/:id',
+  component: SingerEditComponent
+  },
+  {
+  path: 'singer/delete/:id',
+  component: SingerDeleteComponent
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
