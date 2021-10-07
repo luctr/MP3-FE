@@ -16,11 +16,11 @@ import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {RegisterComponent} from "./form-login/register/register.component";
 import {MatCardModule} from "@angular/material/card";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatStepperModule} from "@angular/material/stepper";
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import {MatStepperModule} from "@angular/material/stepper";
     WhatNewComponent,
     WeekTopComponent,
     AppComponent,
-    RegisterComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,

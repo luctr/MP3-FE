@@ -1,18 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {environment} from "../../../environments/environment";
-import {SignInForm} from "../../components/model/SignInForm";
+import {SignInForm} from "../model/SignInForm";
 import {AuthService} from "../../service/auth.service";
 import {Router} from "@angular/router";
 
-
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'app-login-form',
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup = new FormGroup({});
 
@@ -22,10 +19,8 @@ export class RegisterComponent implements OnInit {
   message = 'Valid';
 
 
-
-  constructor(
-              public authService:AuthService) {
-  }
+  constructor(public authService:AuthService,
+              public router:Router) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -33,7 +28,6 @@ export class RegisterComponent implements OnInit {
       password : new FormControl('')
     })
   }
-
   signUp() {
 
   }
@@ -47,17 +41,18 @@ export class RegisterComponent implements OnInit {
         password: this.loginForm.value.password
       }
 
-      const header = {
-        "Authorization": localStorage.getItem("token")
-      }
+      // const header = {
+      //   "Authorization": localStorage.getItem("token")
+      // }
 
 
 
       this.authService.signIn(this.signInForm).subscribe(result=>{
         localStorage.setItem('token',result.token);
         localStorage.setItem('user',JSON.stringify(result));
-        // this.router.navigateByUrl('/');
+        this.router.navigate([""]);
       },error   =>this.message = 'Wrong username or password!')
     }
   }
+
 }
