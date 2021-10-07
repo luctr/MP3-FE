@@ -21,6 +21,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatStepperModule} from "@angular/material/stepper";
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { ListPlaylistComponent } from './components/feature/list-playlist/list-playlist.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     WeekTopComponent,
     AppComponent,
     LoginFormComponent,
+    ListPlaylistComponent,
   ],
   imports: [
     BrowserModule,
