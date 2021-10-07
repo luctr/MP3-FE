@@ -6,6 +6,8 @@ import {SingerComponent} from "./components/singer/singer.component";
 import {SingerCreateComponent} from "./components/singer/singer-create/singer-create.component";
 import {SingerEditComponent} from "./components/singer/singer-edit/singer-edit.component";
 import {SingerDeleteComponent} from "./components/singer/singer-delete/singer-delete.component";
+import {LoginFormComponent} from "./components/login-form/login-form.component";
+
 
 
 const routes: Routes = [
@@ -32,12 +34,15 @@ const routes: Routes = [
   {
   path: 'singer/delete/:id',
   component: SingerDeleteComponent
-  }
+  },
+  {path: '', component: HomepageComponent},
+  {path: 'login', component: LoginFormComponent}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+
+export class AppRoutingModule {}
