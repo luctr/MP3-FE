@@ -12,7 +12,7 @@ import { WhatNewComponent } from './components/feature/what-new/what-new.compone
 import {WeekTopComponent} from "./components/feature/week-top/week-top.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {APP_BASE_HREF} from "@angular/common";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -21,10 +21,11 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatStepperModule} from "@angular/material/stepper";
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import {MatMenuModule} from "@angular/material/menu";
+import {InterceptorService} from "./service/interceptor.service";
 import { ListPlaylistComponent } from './components/feature/list-playlist/list-playlist.component';
 import { MusicPlayerComponent } from './components/feature/music-player/music-player.component';
 import {NgxAudioPlayerModule} from "ngx-audio-player";
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,9 +57,12 @@ import {NgxAudioPlayerModule} from "ngx-audio-player";
     BrowserAnimationsModule,
     MatButtonModule,
     MatStepperModule,
-    NgxAudioPlayerModule
+    NgxAudioPlayerModule,
+    MatIconModule,
+    MatMenuModule
   ],
-  providers: [{provide: APP_BASE_HREF, useValue : '/' }],
+  providers: [{provide: APP_BASE_HREF, useValue : '/' },{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
