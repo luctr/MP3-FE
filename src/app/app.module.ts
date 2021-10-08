@@ -23,9 +23,9 @@ import {MatStepperModule} from "@angular/material/stepper";
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {InterceptorService} from "./service/interceptor.service";
-import { ListPlaylistComponent } from './components/feature/list-playlist/list-playlist.component';
-import { MusicPlayerComponent } from './components/feature/music-player/music-player.component';
 import {NgxAudioPlayerModule} from "ngx-audio-player";
+import {ListPlaylistComponent} from "./components/feature/list-playlist/list-playlist.component";
+import {MusicPlayerComponent} from "./components/feature/music-player/music-player.component";
 import {CreatePlaylistComponent} from "./components/feature/create-playlist/create-playlist.component";
 @NgModule({
   declarations: [
