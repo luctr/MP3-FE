@@ -8,18 +8,19 @@
       <form (ngSubmit)="login()" [formGroup]="loginForm">
         <div class="input">
           <label for="name">Username</label>
-          <input type="text" name="name" id="name">
+          <input type="text" formControlName="username" id="name">
           <span class="spin"></span>
         </div>
 
         <div class="input">
           <label for="pass">Password</label>
-          <input type="password" name="pass" id="pass">
+          <input type="password" formControlName="password" id="pass">
           <span class="spin"></span>
         </div>
+        <mat-error *ngIf="this.message !== 'Valid'" style="color: red">{{this.message}}</mat-error>
 
         <div class="button login">
-          <button><span>GO</span> <i class="fa fa-check"></i></button>
+          <button><span style="color: red">GO</span> <i class="fa fa-check"></i></button>
         </div>
       </form>
     </div>
@@ -28,33 +29,38 @@
       <div class="material-button alt-2"><span class="shape"></span></div>
 
       <div class="title">REGISTER</div>
+      <form (ngSubmit)="signUp()" [formGroup]="signUpForm">
+        <div class="input">
+          <label for="regname">Username</label>
+          <input type="text" formControlName="username" id="regname" minlength="3" maxlength="20">
+<!--          <mat-error >User name is must more than e character</mat-error>-->
+<!--          <mat-error>User name is not required</mat-error>-->
+          <span class="spin"></span>
+        </div>
 
-      <div class="input">
-        <label for="regname">Username</label>
-        <input type="text" name="regname" id="regname">
-        <span class="spin"></span>
-      </div>
+        <div class="input">
+          <label for="regpass">Password</label>
+          <input type="password" formControlName="password" id="regpass">
+          <span class="spin"></span>
+        </div>
 
-      <div class="input">
-        <label for="regpass">Password</label>
-        <input type="password" name="regpass" id="regpass">
-        <span class="spin"></span>
-      </div>
-
-      <div class="input">
-        <label for="reregpass">Repeat Password</label>
-        <input type="password" name="reregpass" id="reregpass">
-        <span class="spin"></span>
-      </div>
-      <div class="input">
-        <label>Phone Number</label>
-        <input type="text" name="phoneNumber" id="phoneNumber">
-        <span class="spin"></span>
-      </div>
-
-      <div class="button">
+<!--        <div class="input">-->
+<!--          <label for="reregpass">Repeat Password</label>-->
+<!--          <input type="password" name="reregpass" id="reregpass">-->
+<!--          <span class="spin"></span>-->
+<!--        </div>-->
+        <div class="input">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="text" formControlName="phoneNumber" id="phoneNumber">
+          <span class="spin"></span>
+        </div>
+        <div class="button">
         <button><span>NEXT</span></button>
       </div>
+      </form>
+
+
+
     </div>
   </div>
 </div>
