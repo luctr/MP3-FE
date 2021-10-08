@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HomepageComponent} from "./components/core/homepage/homepage.component";
-import {PageComponent} from "./components/page/page.component";
-import {SingerComponent} from "./components/singer/singer.component";
-import {SingerCreateComponent} from "./components/singer/singer-create/singer-create.component";
-import {SingerEditComponent} from "./components/singer/singer-edit/singer-edit.component";
-import {SingerDeleteComponent} from "./components/singer/singer-delete/singer-delete.component";
+import {PageComponent} from "./components/feature/page/page.component";
+import {SingerComponent} from "./components/feature/singer/singer.component";
+import {SingerCreateComponent} from "./components/feature/singer/singer-create/singer-create.component";
+import {SingerEditComponent} from "./components/feature/singer/singer-edit/singer-edit.component";
+import {SingerDeleteComponent} from "./components/feature/singer/singer-delete/singer-delete.component";
 import {LoginFormComponent} from "./components/login-form/login-form.component";
 
 

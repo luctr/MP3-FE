@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Singer} from "../../model/singer";
+import {Singer} from "../../../model/singer";
 import {ActivatedRoute} from "@angular/router";
-import {SingerService} from "../../service/singer.service";
+import {SingerService} from "../../../service/singer.service";
 import {error} from "@angular/compiler/src/util";
 
 @Component({

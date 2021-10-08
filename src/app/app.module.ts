@@ -13,11 +13,11 @@ import {WeekTopComponent} from "./components/feature/week-top/week-top.component
 import {AppRoutingModule} from "./app-routing.module";
 import {APP_BASE_HREF} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
-import { PageComponent } from './components/page/page.component';
-import { SingerComponent } from './components/singer/singer.component';
-import { SingerCreateComponent } from './components/singer/singer-create/singer-create.component';
-import { SingerEditComponent } from './components/singer/singer-edit/singer-edit.component';
-import { SingerDeleteComponent } from './components/singer/singer-delete/singer-delete.component';
+import { PageComponent } from './components/feature/page/page.component';
+import { SingerComponent } from './components/feature/singer/singer.component';
+import { SingerCreateComponent } from './components/feature/singer/singer-create/singer-create.component';
+import { SingerEditComponent } from './components/feature/singer/singer-edit/singer-edit.component';
+import { SingerDeleteComponent } from './components/feature/singer/singer-delete/singer-delete.component';
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
@@ -30,6 +30,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatStepperModule} from "@angular/material/stepper";
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { SearchComponent } from './components/feature/search/search.component';
 
 
 
@@ -52,7 +53,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     SingerCreateComponent,
     SingerEditComponent,
     SingerDeleteComponent,
-    FilebaseComponent
+    FilebaseComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
