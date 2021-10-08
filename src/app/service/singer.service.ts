@@ -13,7 +13,7 @@ export class SingerService {
     return this.http.get<Singer>(API_URL +`/${id}`);
   }
   getAll(): Observable<Singer[]> {
-    return this.http.get<Singer[]>(API_URL );
+    return this.http.get<Singer[]>(API_URL);
   }
 
   save(singer: Singer): Observable<Singer> {

@@ -4,7 +4,7 @@ export interface SignUpForm {
   username: string;
   password: string;
   phoneNumber: string;
-  roles:Role;
+  // roles:Role;
 
 
 }

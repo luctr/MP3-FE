@@ -16,7 +16,7 @@ const routes: Routes = [
     component: HomepageComponent
   },
   {
-  path: 'page/:id',
+  path: 'page/:name',
   component: PageComponent
   },
   {

@@ -22,6 +22,7 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import { FilebaseComponent } from './filebase/filebase.component';
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -33,6 +34,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { SearchComponent } from './components/feature/search/search.component';
 
 
+import {MatMenuModule} from "@angular/material/menu";
+import {InterceptorService} from "./service/interceptor.service";
 
 @NgModule({
   declarations: [
@@ -79,5 +82,4 @@ import { SearchComponent } from './components/feature/search/search.component';
   providers: [{provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]
 })
-
-export class AppModule {}
+export class AppModule { }

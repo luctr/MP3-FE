@@ -12,8 +12,7 @@ import {error} from "@angular/compiler/src/util";
 export class SingerComponent implements OnInit {
   singersList: Singer[] = [];
 
-  constructor(private singerService: SingerService,
-              private ac: ActivatedRoute) {
+  constructor(private singerService: SingerService) {
   }
 
   ngOnInit(): void {

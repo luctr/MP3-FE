@@ -10,12 +10,11 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./page.component.scss']
 })
 export class PageComponent implements OnInit {
-
-  id: string | undefined;
+  name: string | undefined;
   user: User | undefined;
+  private localStorage: any;
   constructor(
               private userService: UserService,
-              // private token: TokenService,
               private ac: ActivatedRoute
   ) {
   }
@@ -27,11 +26,12 @@ export class PageComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    // this.id = this.token.getToken().id;
-    this.id = '1';
-    console.log(this.id);
+    this.ac.paramMap.subscribe(paramMap => {
+      // @ts-ignore
+      this.name = paramMap.get('name');
+    console.log(this.name);
     // @ts-ignore
-    this.userService.findById(this.id).subscribe(result => {
+    this.userService.findByName(this.name).subscribe(result => {
       this.user = result
       console.log(result);
       this.userForm = new FormGroup({
@@ -47,7 +47,7 @@ export class PageComponent implements OnInit {
       password: '',
       phoneNumber: '',
     }
-  }
+  })}
 
   updateUser() {
     const user = this.userForm.value;

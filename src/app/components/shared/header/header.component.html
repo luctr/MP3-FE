@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">BlackFriday</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -13,7 +14,8 @@
         <a class="nav-link" href="#">Album</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
           Category
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">![](C:/Users/QUICKP~1/AppData/Local/Temp/bg-1.jpg)
@@ -22,8 +24,9 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item dropdown" *ngIf="userName != ''">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
           Profile
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
@@ -35,14 +38,31 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <a class="nav-link disabled" [routerLink]="['/page/1']">Trang cá nhân</a>
-        <a class="nav-link disabled" href="#">Login</a>
-        <a class="nav-link disabled" href="#">Register</a>
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      <a class="nav-link disabled" *ngIf="userName === ''" href="/login">Login</a>
-      <a class="nav-link disabled" *ngIf="userName !== ''" >{{userName}}</a>
-      <a class="nav-link disabled" *ngIf="userName === ''" href="#">Register</a>
+
+
+      <a class="nav-link disabled" *ngIf="userName == ''" href="/login">Login/Register</a>
+<!--      <a class="nav-link disabled" *ngIf="userName == ''" href="#"></a>-->
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+         aria-expanded="false" *ngIf="userName != ''" style="text-decoration: none">
+        <mat-icon>
+        perm_circle
+      </mat-icon>
+        {{userName}}
+
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown2" style="left: 86%; text-align: center">
+        <a class="nav-link disabled" [routerLink]="['/page/',userName]">Trang cá nhân</a>
+        <a class="dropdown-item" (click)="logout()">Log Out
+          <mat-icon>
+            logout
+          </mat-icon>
+        </a>
+        <div class="dropdown-divider"></div>
+        <!--          <a class="dropdown-item" href="#">Something else here</a>-->
+      </div>
+
     </form>
   </div>
 </nav>

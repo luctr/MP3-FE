@@ -11,10 +11,10 @@ export class UserService {
   findById(id: string): Observable<User> {
     return this.http.get<User>(API_URL + `/${id}`);
   }
+  findByName(name: string): Observable<User> {
+    return this.http.get<User>(API_URL + `/${name}`);
+  }
   update(id: string, user: User): Observable<User> {
     return this.http.put<User>(API_URL + `/${id}`, user);
-  }
-  create( user: User): Observable<User> {
-    return this.http.post<User>(API_URL, user);
   }
 }
