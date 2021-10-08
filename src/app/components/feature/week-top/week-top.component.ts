@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Song} from "../../model/song";
+
 import {SongService} from "../../../service/song.service";
 import {ActivatedRoute} from "@angular/router";
+import {Song} from "../../../model/song";
 
 @Component({
   selector: 'app-week-top',

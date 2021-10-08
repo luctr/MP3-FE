@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-<<<<<<< HEAD
+
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Song} from "../components/model/song";
-=======
->>>>>>> a9cbeb2d56318597a39067c2d0e6e96cc81ee1a8
+import {Song} from "../model/song";
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SongService {
-<<<<<<< HEAD
+
   API = `${environment.API_SONG}`;
 
   constructor(private http: HttpClient) {
@@ -36,8 +36,5 @@ export class SongService {
   deleteProduct(id: number): Observable<Song> {
     return this.http.delete<Song>(`${this.API}${id}`);
   }
-=======
 
-  constructor() { }
->>>>>>> a9cbeb2d56318597a39067c2d0e6e96cc81ee1a8
 }
