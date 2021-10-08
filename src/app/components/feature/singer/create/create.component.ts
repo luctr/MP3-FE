@@ -1,15 +1,38 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroup} from "@angular/forms";
+import {single} from "rxjs/operators";
+import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
+import {SingerService} from "../../../../service/singer.service";
+import {Singer} from "../../../../model/singer";
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+  selector: 'app-craete',
+  templateUrl: './craete.component.html',
+  styleUrls: ['./craete.component.scss']
 })
-export class CreateComponent implements OnInit {
+export class CraeteComponent implements OnInit {
 
-  constructor() { }
+  singerForm: FormGroup = new FormGroup({
+    id: new FormControl(),
+    name: new FormControl(),
+    sex: new FormControl(),
+    dateOfBirth: new FormControl(),
+    story: new FormControl(),
+    yearOfBirth: new FormControl(),
+    musicBand: new FormControl(),
+    MoreInformation: new FormControl(),
+
+  });
+  constructor(private singerService: SingerService,private http:HttpClient,private router:Router) { }
 
   ngOnInit(): void {
   }
+  submit() {
+    this.http.post<Singer>('http://localhost:8080/singer', this.singerForm.value).subscribe((data) => {
+      alert("thêm thành công - ")
+      this.router.navigate(["/singer"])
+    })
 
+  }
 }

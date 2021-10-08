@@ -1,1 +1,38 @@
-<p>create works!</p>
+<h1>thêm singer</h1>
+<div>
+  <form [formGroup]="singerForm" (ngSubmit)="submit()"></form>
+  <table>
+    <tr>
+      <td>Tên</td>
+      <td><input type="text" formControlName="name"></td>
+    </tr>
+    <tr>
+      <td>Sex:</td>
+      <td><input type="text" formControlName="sex"></td>
+    </tr>
+    <tr>
+      <td>dateOfBirth:</td>
+      <td><input type="text" formControlName="dateOfBirth"></td>
+    </tr>
+    <tr>
+      <td>story:</td>
+      <td><input type="text" formControlName="story"></td>
+    </tr>
+    <tr>
+      <td>yearOfBirth:</td>
+      <td><input type="text" formControlName="yearOfBirth"></td>
+    </tr>
+    <tr>
+      <td>musicBand:</td>
+      <td><input type="text" formControlName="musicBand"></td>
+    </tr>
+    <tr>
+      <td>MoreInformation:</td>
+      <td><input type="text" formControlName="MoreInformation"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button>Tạo mới</button></td>
+    </tr>
+  </table>
+</div>
