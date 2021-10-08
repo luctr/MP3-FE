@@ -22,6 +22,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatStepperModule} from "@angular/material/stepper";
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { ListPlaylistComponent } from './components/feature/list-playlist/list-playlist.component';
+import { MusicPlayerComponent } from './components/feature/music-player/music-player.component';
+import {NgxAudioPlayerModule} from "ngx-audio-player";
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { ListPlaylistComponent } from './components/feature/list-playlist/list-p
     AppComponent,
     LoginFormComponent,
     ListPlaylistComponent,
+    MusicPlayerComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ import { ListPlaylistComponent } from './components/feature/list-playlist/list-p
     BrowserAnimationsModule,
     MatButtonModule,
     MatStepperModule,
+    NgxAudioPlayerModule
   ],
   providers: [{provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]

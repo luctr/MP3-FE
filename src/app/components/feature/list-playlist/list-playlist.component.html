@@ -1,18 +1,29 @@
-<p>list-playlist works!</p>
-<h1>Danh sách sản phẩm</h1>
-<table>
-  <tr>
-    <td>STT</td>
-    <td>Tên</td>
-    <td>Giá</td>
-    <td>Mô tả</td>
-    <td colspan="2"></td>
-  </tr>
-  <tr *ngFor="let p of playlists; index as i">
-    <td>{{i + 1}}</td>
-    <td>{{p.name}}</td>
-    <td>{{p.description}}</td>
-    <td><a > Edit</a></td>
-    <td><a >Delete</a></td>
-  </tr>
-</table>
+<!-- ##### Breadcumb Area Start ##### -->
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(assets/img/bg-img/breadcumb.jpg);">
+  <div class="bradcumbContent">
+    <p>See what’s new</p>
+    <h2>Playlist</h2>
+  </div>
+</section>
+<!-- ##### Events Area Start ##### -->
+
+<section class="events-area section-padding-100">
+  <div class="container">
+    <h2>List Playlist Play recently</h2>
+    <div class="row">
+
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let playlist of playlists">
+        <div class="single-event-area mb-30">
+          <div class="event-thumbnail">
+<!--            <img src="{{playlist.description}}" alt="" style="height: 350px; width: 350px">-->
+            <h1>{{playlist.description}}"</h1>
+          </div>
+          <div class="event-text">
+            <h4>{{playlist.name}}</h4>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

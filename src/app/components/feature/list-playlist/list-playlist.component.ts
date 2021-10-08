@@ -12,10 +12,12 @@ export class ListPlaylistComponent implements OnInit {
   constructor(private playlistService: PlaylistService) { }
 
   ngOnInit(): void {
+
   }
   getAll(){
     this.playlistService.getAll().subscribe(playlist => {
       this.playlists = playlist;
+      console.log(playlist)
     })
   }
 
