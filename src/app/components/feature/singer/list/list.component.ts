@@ -18,8 +18,10 @@ export class ListComponent implements OnInit {
     this.getAll();
 
   }
-  getAll() {
-    this.http.get<Singer>('http://localhost:8080/singer',this.singers.values()).subscribe((data) => {
-      this.singers = singers;
-    });
-  }}
+  getAll(){
+    this.singerService.getAll().subscribe(singerq => {
+      this.singers = singerq;
+      console.log(singerq)
+    })
+  }
+}
