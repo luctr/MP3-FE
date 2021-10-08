@@ -31,15 +31,15 @@ export class SingerEditComponent implements OnInit {
       // @ts-ignore
       this.id = paramMap.get('id');
       // @ts-ignore
-      this.singerService.getById(this.id).subscribe(result => {
+      this.singerService.findById(this.id).subscribe(result => {
           this.singer = result;
           this.singForm = new FormGroup({
-            name: new FormControl(this.singer.name, [Validators.required, Validators.minLength(6)]),
-            sex: new FormControl(this.singer.sex, [Validators.required]),
-            dateOfBirth: new FormControl(this.singer.dateOfBirth, [Validators.required]),
-            story: new FormControl(this.singer.story, [Validators.required, Validators.minLength(30)]),
-            musicBand: new FormControl(this.singer.musicBand),
-            MoreInformation: new FormControl(this.singer.MoreInformation, [Validators.required, Validators.minLength(6)]),
+            name: new FormControl(this.singer?.name, [Validators.required, Validators.minLength(6)]),
+            sex: new FormControl(this.singer?.sex, [Validators.required]),
+            dateOfBirth: new FormControl(this.singer?.dateOfBirth, [Validators.required]),
+            story: new FormControl(this.singer?.story, [Validators.required, Validators.minLength(30)]),
+            musicBand: new FormControl(this.singer?.musicBand),
+            MoreInformation: new FormControl(this.singer?.MoreInformation, [Validators.required, Validators.minLength(6)]),
           })
           console.log(result);
         }, error => {
