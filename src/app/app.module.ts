@@ -23,6 +23,8 @@ import {MatStepperModule} from "@angular/material/stepper";
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {InterceptorService} from "./service/interceptor.service";
+import {ListSongComponent} from "./components/song/list-song/list-song.component";
+import {CreateSongComponent} from "./components/song/create-song/create-song.component";
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import {InterceptorService} from "./service/interceptor.service";
     WeekTopComponent,
     AppComponent,
     LoginFormComponent,
+    ListSongComponent,
+    CreateSongComponent
   ],
   imports: [
     BrowserModule,

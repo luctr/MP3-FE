@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  API_LOGIN : "http://localhost:8080/auth"
+  API_LOGIN : "http://localhost:8080/auth",
+  API_SONG : 'http://localhost:8080/songs/'
 };
 
 /*
