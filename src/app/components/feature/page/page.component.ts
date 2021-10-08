@@ -10,9 +10,9 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./page.component.scss']
 })
 export class PageComponent implements OnInit {
+  id: string | undefined
   name: string | undefined;
   user: User | undefined;
-  private localStorage: any;
   constructor(
               private userService: UserService,
               private ac: ActivatedRoute
@@ -33,6 +33,7 @@ export class PageComponent implements OnInit {
     // @ts-ignore
     this.userService.findByName(this.name).subscribe(result => {
       this.user = result
+      this.id = result.id;
       console.log(result);
       this.userForm = new FormGroup({
         username: new FormControl(this.user.username,[Validators.required,Validators.minLength(3),Validators.maxLength(50)]),
@@ -50,6 +51,7 @@ export class PageComponent implements OnInit {
   })}
 
   updateUser() {
+    console.log("abc")
     const user = this.userForm.value;
     console.log(user);
 // @ts-ignore
