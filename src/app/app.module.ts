@@ -27,6 +27,7 @@ import { ListPlaylistComponent } from './components/feature/list-playlist/list-p
 import { MusicPlayerComponent } from './components/feature/music-player/music-player.component';
 import {NgxAudioPlayerModule} from "ngx-audio-player";
 import {CreatePlaylistComponent} from "./components/feature/create-playlist/create-playlist.component";
+import { SeachComponent } from './components/feature/song/seach/seach.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import {CreatePlaylistComponent} from "./components/feature/create-playlist/crea
     LoginFormComponent,
     ListPlaylistComponent,
     MusicPlayerComponent,
-    CreatePlaylistComponent
+    CreatePlaylistComponent,
+    SeachComponent
   ],
   imports: [
     BrowserModule,
