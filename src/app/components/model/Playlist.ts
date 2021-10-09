@@ -1,10 +1,10 @@
-import {user} from "./User";
-import {song} from "./Song";
+import {Song} from "../../model/song";
+import {User} from "../../model/user";
 
 export interface playlist {
   id : number;
   description : string;
   name : string;
-  users: user;
-  song: song;
+  users: User;
+  song: Song;
 }

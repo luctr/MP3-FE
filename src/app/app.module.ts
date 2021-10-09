@@ -41,8 +41,6 @@ import { ListPlaylistComponent } from './components/feature/list-playlist/list-p
 import { MusicPlayerComponent } from './components/feature/music-player/music-player.component';
 import {NgxAudioPlayerModule} from "ngx-audio-player";
 import {CreatePlaylistComponent} from "./components/feature/create-playlist/create-playlist.component";
-import { SeachComponent } from './components/feature/song/seach/seach.component';
-import { CreateComponent } from './components/festure/singer/create/create.component';
 import { ListComponent } from './components/feature/singer/list/list.component';
 @NgModule({
   declarations: [
@@ -70,8 +68,8 @@ import { ListComponent } from './components/feature/singer/list/list.component';
     ListPlaylistComponent,
     MusicPlayerComponent,
     CreatePlaylistComponent,
-    SeachComponent,
-    CreateComponent,
+    // SeachComponent,
+    // CreateComponent,
     ListComponent
   ],
   imports: [
