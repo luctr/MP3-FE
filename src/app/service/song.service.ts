@@ -25,7 +25,7 @@ export class SongService {
     return this.http.post<Song>(this.API ,song );
   }
 
-  findByIdSong(id: number): Observable<Song> {
+  findByIdSong(id: number | undefined): Observable<Song> {
     return this.http.get<Song>(`${this.API}${id}`);
   }
 

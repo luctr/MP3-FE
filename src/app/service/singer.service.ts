@@ -3,28 +3,34 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Singer} from "../model/singer";
-const API_URL = 'http://localhost:8080/singer'
+
 @Injectable({
   providedIn: 'root'
 })
 export class SingerService {
 
 
-  constructor(private http:HttpClient) { }
-  getById(id: string): Observable<Singer> {
-    return this.http.get<Singer>(API_URL +`/${id}`);
+  constructor(private httpClient: HttpClient) { }
+  private readonly API_URL = 'http://localhost:8080/singer'
+  getAll(): Observable<any>{
+    return this.httpClient.get(this.API_URL)
   }
-  getAll(): Observable<Singer[]> {
-    return this.http.get<Singer[]>(API_URL);
+  create(singer: Singer ): Observable<Singer>{
+    return this.httpClient.post<Singer>(this.API_URL,singer)
   }
-
-  save(singer: Singer): Observable<Singer> {
-    return this.http.post<Singer>(API_URL,singer);
+  findById(id: number): Observable<any>{
+    return this.httpClient.get(`${this.API_URL}/${id}`)
   }
-  delete(id: string) {
-    return this.http.delete(API_URL + `/${id}`);
+  edit(id: number,singer: Singer): Observable<any>{
+    return this.httpClient.put(`${this.API_URL}/${id}`,singer)
   }
-  update(id: string, singer: Singer): Observable<Singer> {
-    return this.http.put<Singer>(API_URL + `/${id}`, singer);
+  delete(id: number): Observable<any>{
+    return this.httpClient.get(`${this.API_URL}/${id}`)
+  }
+  search(name: string): Observable<any>{
+    return this.httpClient.get(`${this.API_URL}/search/${name}`)
+  }
+  top7New(): Observable<any>{
+    return this.httpClient.get(`${this.API_URL}/top7`)
   }
 }

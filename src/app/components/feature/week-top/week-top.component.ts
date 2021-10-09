@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {SingerService} from "../../../service/singer.service";
 
 import {SongService} from "../../../service/song.service";
 import {ActivatedRoute} from "@angular/router";
 import {Song} from "../../../model/song";
+import {Singer} from "../../model/Singer";
 
 @Component({
   selector: 'app-week-top',
@@ -11,9 +13,11 @@ import {Song} from "../../../model/song";
 })
 export class WeekTopComponent implements OnInit {
   song: Song [] = [];
+  singers: Singer [] = [];
 
   constructor(private songService: SongService,
-              private activeRouter: ActivatedRoute) {
+              private activeRouter: ActivatedRoute,
+              private singerService: SingerService) {
     this.activeRouter.paramMap.subscribe(paraMap => {
       const id = paraMap.get('id');
     });
@@ -22,6 +26,7 @@ export class WeekTopComponent implements OnInit {
   ngOnInit() {
     this.getAll();
     console.log(this.getAll())
+    this.getTop7()
   }
 
   getAll() {
@@ -29,6 +34,11 @@ export class WeekTopComponent implements OnInit {
       this.song = data;
       console.log(data)
     });
+  }
+  getTop7(){
+    this.singerService.getAll().subscribe(data => {
+      this.singers = data;
+    })
   }
 
 }
