@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Singer} from "../../../../model/singer";
-import {SingerService} from "../../../../service/singer.service";
+import {SingerService} from "../../../../service/singer/singer.service";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 

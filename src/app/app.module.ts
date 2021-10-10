@@ -27,13 +27,13 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatCardModule} from "@angular/material/card";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatStepperModule} from "@angular/material/stepper";
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SearchComponent } from './components/feature/search/search.component';
 import {MatMenuModule} from "@angular/material/menu";
-import {InterceptorService} from "./service/interceptor.service";
+import {InterceptorService} from "./service/interceptor/interceptor.service";
 import {ListSongComponent} from "./components/song/list-song/list-song.component";
 import {CreateSongComponent} from "./components/song/create-song/create-song.component";
 
@@ -98,6 +98,7 @@ import { TopSongComponent } from './components/song/top-song/top-song.component'
     NgxAudioPlayerModule,
     MatIconModule,
     MatMenuModule,
+    FormsModule,
   ],
   providers: [{provide: APP_BASE_HREF, useValue : '/' },
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}

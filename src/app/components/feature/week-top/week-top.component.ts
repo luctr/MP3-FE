@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {SingerService} from "../../../service/singer.service";
+import {SingerService} from "../../../service/singer/singer.service";
 
-import {SongService} from "../../../service/song.service";
+import {SongService} from "../../../service/song/song.service";
 import {ActivatedRoute} from "@angular/router";
 import {Song} from "../../../model/song";
 import {Singer} from "../../../model/singer";

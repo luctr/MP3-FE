@@ -3,7 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {single} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {SingerService} from "../../../../service/singer.service";
+import {SingerService} from "../../../../service/singer/singer.service";
 import {Singer} from "../../../../model/singer";
 
 @Component({

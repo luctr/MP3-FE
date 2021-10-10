@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-song.component.scss']
 })
 export class TopSongComponent implements OnInit {
-
+value = 0;
   constructor() { }
 
   ngOnInit(): void {

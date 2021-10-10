@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {SingerService} from "../../../../service/singer.service";
+import {SingerService} from "../../../../service/singer/singer.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({

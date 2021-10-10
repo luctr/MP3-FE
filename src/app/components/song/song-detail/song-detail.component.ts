@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Song} from "../../../model/song";
-import {SongService} from "../../../service/song.service";
+import {SongService} from "../../../service/song/song.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {FormControl, FormGroup} from "@angular/forms";
 import {User} from "../../../model/user";
 import {SongCategory} from "../../../model/song-category";
 import {Singer} from "../../../model/singer";
+import {TopSongComponent} from "../top-song/top-song.component";
 
 @Component({
   selector: 'app-song-detail',
@@ -16,7 +17,8 @@ import {Singer} from "../../../model/singer";
 export class SongDetailComponent implements OnInit {
   songForm!: FormGroup;
     id?: number ;
-
+  @ViewChild(TopSongComponent)
+  myChild!:TopSongComponent;
   constructor(private songService: SongService,
               private activeRoute: ActivatedRoute,
               private router: Router,
@@ -37,19 +39,29 @@ export class SongDetailComponent implements OnInit {
     })
     this.activeRoute.params.subscribe((data) => this.id = data.name);
     this.showEditProduct(this.id);
+    console.log(this.showEditProduct(this.id))
   }
 
   showEditProduct(id:any) {
     this.http.get<Song>(`http://localhost:8080/songs/${id}`).subscribe((data) => {
-      this.songForm.get('name');
-      this.songForm.get('description');
-      this.songForm.get('mp3');
-      this.songForm.get('avatar');
-      this.songForm.get('author');
-      this.songForm.get('user');
-      this.songForm.get('songCategory');
-      this.songForm.get('singer');
+      console.log(data)
+      this.songForm = new FormGroup({
+        id: new FormControl(data.id),
+        name: new FormControl(data.name),
+        description: new FormControl(data.description),
+        mp3: new FormControl(data.mp3),
+        avatar: new FormControl(data.avatar),
+        author: new FormControl(data.author),
+        user: new FormControl(data.user),
+        songCategory: new FormControl(data.songCategory),
+        singer: new FormControl(data.singer)
+
+      })
     })
+  }
+
+  onClick() {
+    this.myChild.value++;
   }
 
 }

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import {environment} from "../../environments/environment";
+import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Song} from "../model/song";
+import {Song} from "../../model/song";
 
 
 
@@ -25,7 +25,7 @@ export class SongService {
     return this.http.post<Song>(this.API ,song );
   }
 
-  findByIdSong(id: number | undefined): Observable<Song> {
+  findByIdSong(id: number ): Observable<Song> {
     return this.http.get<Song>(`${this.API}${id}`);
   }
 
