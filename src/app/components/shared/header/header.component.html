@@ -38,19 +38,15 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-
-
+      <input class="form-control mr-sm-2" type="search" [(ngModel)]="key" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()">Search</button>
       <a class="nav-link disabled" *ngIf="userName == ''" href="/login">Login/Register</a>
-<!--      <a class="nav-link disabled" *ngIf="userName == ''" href="#"></a>-->
       <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
          aria-expanded="false" *ngIf="userName != ''" style="text-decoration: none">
         <mat-icon>
         perm_circle
       </mat-icon>
         {{userName}}
-
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown2" style="left: 86%; text-align: center">
         <a class="nav-link disabled" [routerLink]="['/page/',userName]">Trang cá nhân</a>
@@ -59,7 +55,8 @@
             logout
           </mat-icon>
         </a>
-        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider">
+        </div>
         <!--          <a class="dropdown-item" href="#">Something else here</a>-->
       </div>
 

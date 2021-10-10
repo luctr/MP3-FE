@@ -27,7 +27,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatCardModule} from "@angular/material/card";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatStepperModule} from "@angular/material/stepper";
 import { LoginFormComponent } from './components/login-form/login-form.component';
@@ -85,6 +85,7 @@ import {CreatePlaylistComponent} from "./components/feature/create-playlist/crea
     NgxAudioPlayerModule,
     MatIconModule,
     MatMenuModule,
+    FormsModule,
   ],
   providers: [{provide: APP_BASE_HREF, useValue : '/' },
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}

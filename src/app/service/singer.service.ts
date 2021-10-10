@@ -25,4 +25,7 @@ export class SingerService {
   update(id: string, singer: Singer): Observable<Singer> {
     return this.http.put<Singer>(API_URL + `/${id}`, singer);
   }
+  getByName(name: string): Observable<Singer[]> {
+    return this.http.get<Singer[]>(API_URL+'/search' +`/${name}`);
+  }
 }
