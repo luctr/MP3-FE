@@ -44,6 +44,7 @@ import {CreatePlaylistComponent} from "./components/feature/create-playlist/crea
 import { ListComponent } from './components/feature/singer/list/list.component';
 import { SongDetailComponent } from './components/song/song-detail/song-detail.component';
 import { TopSongComponent } from './components/song/top-song/top-song.component';
+import { CommentComponent } from './components/feture/comment/comment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +75,8 @@ import { TopSongComponent } from './components/song/top-song/top-song.component'
     // CreateComponent,
     ListComponent,
     SongDetailComponent,
-    TopSongComponent
+    TopSongComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
