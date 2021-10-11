@@ -26,7 +26,7 @@ export class SongService {
   }
 
   getTopSong(): Observable<Song[]> {
-    return this.http.get<Song[]>(this.API+ `/topsong`)
+    return this.http.get<Song[]>(this.API+ `topsong`)
   }
   findByIdSong(id: number ): Observable<Song> {
     return this.http.get<Song>(`${this.API}${id}`);

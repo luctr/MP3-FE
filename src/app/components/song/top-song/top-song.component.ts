@@ -33,12 +33,14 @@ topSong: Song[] = [];
   getAll() {
       this.songService.getTopSong().subscribe((data)=>{
         this.topSong = data
+        return data;
       })
     }
 
   getCount(id:number) {
     this.songService.findByIdSong(id).subscribe((data) => {
       this.topForm.get('count')?.setValue(data.count++);
+
     })
   }
 
