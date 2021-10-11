@@ -8,6 +8,8 @@ import {SingerEditComponent} from "./components/feature/singer/singer-edit/singe
 import {SingerDeleteComponent} from "./components/feature/singer/singer-delete/singer-delete.component";
 import {LoginFormComponent} from "./components/login-form/login-form.component";
 import {SearchComponent} from "./components/feature/search/search.component";
+import {ListSongComponent} from "./components/song/list-song/list-song.component";
+import {CreateSongComponent} from "./components/song/create-song/create-song.component";
 
 
 
@@ -41,7 +43,9 @@ const routes: Routes = [
   component: SingerDeleteComponent
   },
   {path: '', component: HomepageComponent},
-  {path: 'login', component: LoginFormComponent}
+  {path: 'login', component: LoginFormComponent},
+  {path:'song-list', component :ListSongComponent},
+  {path:'song-create', component :CreateSongComponent}
 ];
 
 

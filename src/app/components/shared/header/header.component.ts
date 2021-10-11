@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
       let obj = JSON.parse(<string>localStorage.getItem('user'));
       this.userName = obj.name;
     }
-    console.log(this.key);
   }
   logout(): void {
     localStorage.removeItem('token');
@@ -26,6 +25,8 @@ export class HeaderComponent implements OnInit {
     window.location.reload()
   }
 search(){
+    // @ts-ignore
+  this.key = document.getElementById('key').value;
 console.log(this.key);
   localStorage.setItem('key', this.key);
   this.router.navigateByUrl('/search').then(() => {

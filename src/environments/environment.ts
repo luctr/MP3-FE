@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  API_LOGIN : "http://localhost:8080/auth",
+  API_SONG : 'http://localhost:8080/songs/',
   firebaseConfig : {
     apiKey: "AIzaSyBRIK-NUaGdxSM2rTWZTUs0nWyoHpiFqdk",
     authDomain: "mudule6.firebaseapp.com",
@@ -14,7 +16,7 @@ export const environment = {
     appId: "1:633954830193:web:e50384ca8dce27c037d8d0",
     measurementId: "G-T8RHCGY4YQ"
   },
-  API_LOGIN : "http://localhost:8080/auth"
+
 };
 
 /*

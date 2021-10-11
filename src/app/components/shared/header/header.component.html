@@ -24,29 +24,24 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
-      <li class="nav-item dropdown" *ngIf="userName != ''">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false">
-          Profile
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-          <a class="dropdown-item" href="#">Chỉnh sửa profile</a>
-          <a class="dropdown-item" href="#">Tạo playlist</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
       </li>
+      <li class="nav-item"  *ngIf="userName != ''">
+        <a class="nav-link" href="#">Upload Music</a>
+      </li>
+
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" [(ngModel)]="key" placeholder="Search" aria-label="Search">
+      <input class="form-control mr-sm-2" type="search" id="key" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()">Search</button>
       <a class="nav-link disabled" *ngIf="userName == ''" href="/login">Login/Register</a>
+<!--      <a class="nav-link disabled" *ngIf="userName == ''" href="#"></a>-->
       <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
          aria-expanded="false" *ngIf="userName != ''" style="text-decoration: none">
         <mat-icon>
         perm_circle
       </mat-icon>
         {{userName}}
+
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown2" style="left: 86%; text-align: center">
         <a class="nav-link disabled" [routerLink]="['/page/',userName]">Trang cá nhân</a>
@@ -55,8 +50,7 @@
             logout
           </mat-icon>
         </a>
-        <div class="dropdown-divider">
-        </div>
+        <div class="dropdown-divider"></div>
         <!--          <a class="dropdown-item" href="#">Something else here</a>-->
       </div>
 
