@@ -4,14 +4,14 @@ import {single} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {SingerService} from "../../../../service/singer/singer.service";
-import {Singer} from "../../../../model/singer";
+import {Singer} from "../../../model/singer";
 
 @Component({
-  selector: 'app-craete',
-  templateUrl: './craete.component.html',
-  styleUrls: ['./craete.component.scss']
+  selector: 'app-create',
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.scss']
 })
-export class CraeteComponent implements OnInit {
+export class CreateComponent implements OnInit {
 
   singerForm: FormGroup = new FormGroup({
     id: new FormControl(),

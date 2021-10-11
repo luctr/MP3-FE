@@ -44,7 +44,8 @@ import {CreatePlaylistComponent} from "./components/feature/create-playlist/crea
 import { ListComponent } from './components/feature/singer/list/list.component';
 import { SongDetailComponent } from './components/song/song-detail/song-detail.component';
 import { TopSongComponent } from './components/song/top-song/top-song.component';
-import { CommentComponent } from './components/feture/comment/comment.component';
+import {CommentComponent} from "./components/feature/comment/comment.component";
+import {CreateComponent} from "./components/feature/singer/create/create.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +73,7 @@ import { CommentComponent } from './components/feture/comment/comment.component'
     MusicPlayerComponent,
     CreatePlaylistComponent,
     // SeachComponent,
-    // CreateComponent,
+    CreateComponent,
     ListComponent,
     SongDetailComponent,
     TopSongComponent,

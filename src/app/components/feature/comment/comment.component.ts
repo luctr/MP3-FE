@@ -19,17 +19,6 @@ export class CommentComponent implements OnInit {
     this.comments[i].complete = !this.comments[i].complete;
   }
 
-  change() {
-    const value = this.name.value;
-    if (value) {
-      const comment: Comment = {
-        id: _id++,
-        name: value,
-        complete: false
-      };
-      this.comments.push(comment);
-      this.name.reset();
-    }
-  }
+
 }
 

@@ -1,13 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Song} from "../../../model/song";
+import {Song} from "../../model/song";
 import {SongService} from "../../../service/song/song.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {FormControl, FormGroup} from "@angular/forms";
-import {User} from "../../../model/user";
-import {SongCategory} from "../../../model/song-category";
-import {Singer} from "../../../model/singer";
-import {TopSongComponent} from "../top-song/top-song.component";
 
 @Component({
   selector: 'app-song-detail',
@@ -17,8 +13,7 @@ import {TopSongComponent} from "../top-song/top-song.component";
 export class SongDetailComponent implements OnInit {
   songForm!: FormGroup;
     id?: number ;
-  @ViewChild(TopSongComponent)
-  myChild!:TopSongComponent;
+
   constructor(private songService: SongService,
               private activeRoute: ActivatedRoute,
               private router: Router,
@@ -38,11 +33,10 @@ export class SongDetailComponent implements OnInit {
     singer: new FormControl()
     })
     this.activeRoute.params.subscribe((data) => this.id = data.name);
-    this.showEditProduct(this.id);
-    console.log(this.showEditProduct(this.id))
+    this.showEditSong(this.id);
   }
 
-  showEditProduct(id:any) {
+  showEditSong(id:any) {
     this.http.get<Song>(`http://localhost:8080/songs/${id}`).subscribe((data) => {
       console.log(data)
       this.songForm = new FormGroup({
@@ -60,8 +54,5 @@ export class SongDetailComponent implements OnInit {
     })
   }
 
-  onClick() {
-    this.myChild.value++;
-  }
 
 }

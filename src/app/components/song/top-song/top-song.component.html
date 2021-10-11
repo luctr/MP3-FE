@@ -1,1 +1,17 @@
-<h1>{{value}}</h1>
+<div *ngFor="let song of topSong" class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
+     data-wow-delay="100ms">
+  <div type="button" routerLink="/song-detail"  class="first-part d-flex align-items-center">
+    <div class="thumbnail">
+      <img src="{{song.avatar}}">
+    </div>
+    <div class="content-">
+      <h6>{{song.name}}</h6>
+      <p>{{song.singer?.name}}</p>
+    </div>
+  </div>
+  <div (click)="getCount(id)">
+  <audio preload="auto"  controls>
+    <source src="{{song.mp3}} ">
+  </audio>
+  </div>
+</div>

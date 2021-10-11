@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../../../model/user";
 import {UserService} from "../../../service/user.service";
 import {ActivatedRoute} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {User} from "../../model/user";
 
 @Component({
   selector: 'app-page',
@@ -10,7 +10,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./page.component.scss']
 })
 export class PageComponent implements OnInit {
-  id: string | undefined
+  id: string | undefined;
   name: string | undefined;
   user: User | undefined;
   constructor(
@@ -31,19 +31,21 @@ export class PageComponent implements OnInit {
       this.name = paramMap.get('name');
     console.log(this.name);
     // @ts-ignore
-    this.userService.findByName(this.name).subscribe(result => {
+      this.userService.findByName(this.name).subscribe(result => {
       this.user = result
-      this.id = result.id;
+      // @ts-ignore
+        this.id = result.id;
       console.log(result);
       this.userForm = new FormGroup({
-        username: new FormControl(this.user.username,[Validators.required,Validators.minLength(3),Validators.maxLength(50)]),
-        password: new FormControl(this.user.password, [Validators.required,Validators.minLength(10)]),
-        phoneNumber: new FormControl(this.user.phoneNumber,[Validators.required, Validators.pattern(/^\+84\d{9}$/)])
+        username: new FormControl(this.user?.username,[Validators.required,Validators.minLength(3),Validators.maxLength(50)]),
+        password: new FormControl(this.user?.password, [Validators.required,Validators.minLength(10)]),
+        phoneNumber: new FormControl(this.user?.phoneNumber,[Validators.required, Validators.pattern(/^\+84\d{9}$/)])
       })
     }, error => {
       console.log(error);
     })
-    this.user = {
+    // @ts-ignore
+      this.user = {
       username: '',
       password: '',
       phoneNumber: '',

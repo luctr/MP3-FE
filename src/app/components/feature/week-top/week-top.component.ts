@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {SingerService} from "../../../service/singer/singer.service";
 
 import {SongService} from "../../../service/song/song.service";
 import {ActivatedRoute} from "@angular/router";
-import {Song} from "../../../model/song";
-import {Singer} from "../../../model/singer";
+import {Song} from "../../model/song";
+import {Singer} from "../../model/singer";
+import {TopSongComponent} from "../../song/top-song/top-song.component";
 
 @Component({
   selector: 'app-week-top',
@@ -40,5 +41,6 @@ export class WeekTopComponent implements OnInit {
       this.singers = data;
     })
   }
+
 
 }

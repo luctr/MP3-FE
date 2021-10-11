@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Singer} from "../../model/singer";
+import {Singer} from "../../components/model/singer";
 
 @Injectable({
   providedIn: 'root'
