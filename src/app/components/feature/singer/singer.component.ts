@@ -14,7 +14,6 @@ export class SingerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // @ts-ignore
     this.singerService.getAll().subscribe(singList => {
       this.singersList = singList;
       console.log(singList);

@@ -67,3 +67,39 @@
     </div>
   </div>
 </section>
+<div class="col-6">
+  <h1>Danh sách ca sĩ</h1>
+  <div>
+    <a routerLink="/singer/create">Tạo mới</a>
+  </div>
+  <table class="table ">
+    <thead>
+    <tr>
+      <th scope="col">TT</th>
+      <th scope="col">Tên ca sĩ</th>
+      <th scope="col">Giới tính</th>
+      <th scope="col">Ngày sinh</th>
+      <th scope="col">Tiểu sử</th>
+      <th scope="col">Năm sinh</th>
+      <th scope="col">Ban nhạc</th>
+      <th scope="col">Thêm thông tin</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let singerList of singers, index as i">
+      <th scope="row">{{i+1}}</th>
+      <td>{{singerList.name}}</td>
+      <td>{{singerList.sex}}</td>
+      <td>{{singerList.dateOfBirth}}</td>
+      <td>{{singerList.story}}</td>
+      <td>{{singerList.yearOfBirth}}</td>
+      <td>{{singerList.musicBand}}</td>
+      <td>{{singerList.MoreInformation}}</td>
+      <td><a [routerLink]="['/singer/edit/',singerList.id]">Sửa</a></td>
+      <td><a [routerLink]="['/singer/delete/',singerList.id]">Xóa</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

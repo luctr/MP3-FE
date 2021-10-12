@@ -27,10 +27,11 @@ export class HeaderComponent implements OnInit {
 search(){
     // @ts-ignore
   this.key = document.getElementById('key').value;
+
 console.log(this.key);
   localStorage.setItem('key', this.key);
-  this.router.navigateByUrl('/search').then(() => {
-    location.reload();
+  this.router.navigateByUrl('/page-search').then(() => {
+    window.location.reload();
   });
 }
 }

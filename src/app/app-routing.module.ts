@@ -23,7 +23,7 @@ const routes: Routes = [
   component: PageComponent
   },
   {
-  path: 'search',
+  path: 'page-search',
   component: SearchComponent
   },
   {

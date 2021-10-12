@@ -16,7 +16,7 @@ export class SearchComponent implements OnInit {
   check1: Boolean = false;
   check2: Boolean = false;
   check3: Boolean = false;
-  name: string | null | undefined;
+  name: string = '';
   songs: song[] = [];
   singers: Singer[] = [];
   playlist: playlist[] = [];
@@ -28,42 +28,40 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.x = 0;
+    // @ts-ignore
     this.name = localStorage.getItem('key');
     console.log(this.name);
-    this.name = 'hello'
-    this.songService.getByName(this.name).subscribe(date1 => {
-      // @ts-ignore
-      this.songs = date1
-      console.log(date1);
-    }, error => {
-      console.log(error);
-    })
-    this.singerService.getByName(this.name).subscribe(date2 => {
-      this.singers = date2;
-      console.log(date2);
-    }, error => {
-      console.log(error);
-    })
-    this.playlistService.getByName(this.name).subscribe(date3 => {
-      this.playlist = date3;
-      console.log(date3);
-    }, error => {
-      console.log(error);
-    })
-    while (this.x < 10) {
+    this.songService.getByName(this.name).subscribe(songList => {
+      this.songs = songList
+      console.log(this.songs);
       if (this.songs.length > 0) {
         this.check1 = true;
-        break;
+      } else {
+        this.playlistService.getByName(this.name).subscribe(date2 => {
+          this.playlist = date2;
+          console.log(this.playlist);
+          if (this.playlist.length > 0) {
+            this.check2 = true;
+            console.log(this.check2)
+          } else {
+            this.singerService.getByName(this.name).subscribe(date3 => {
+              this.singers = date3;
+              console.log(this.singers);
+              if (this.singers.length > 0) {
+                this.check3 = true
+              }
+            }, error => {
+              console.log(error);
+            });
+          }
+        }, error => {
+          console.log(error);
+        });
       }
-      if (this.playlist.length > 0) {
-        this.check2 = true;
-        break;
-      }
-      if (this.singers.length > 0) {
-        this.check3 = true;
-        break;
-      }
-    }
+    }, error => {
+      console.log(error);
+    });
   }
 
 

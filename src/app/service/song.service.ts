@@ -1,11 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+
 const API_URL = 'http://localhost:8080/songs'
 import {environment} from "../../environments/environment";
-import {Singer} from "../components/model/Singer";
 import {song} from "../components/model/song";
-
 
 
 @Injectable({
@@ -13,17 +12,21 @@ import {song} from "../components/model/song";
 })
 export class SongService {
 
-  constructor(private httpClient: HttpClient) { }
-  getByName(name: string): Observable<Singer[]> {
-    return this.httpClient.get<Singer[]>(API_URL+'/search' +`/${name}`);
+  constructor(private httpClient: HttpClient) {
   }
+
+  getByName(name: string): Observable<song[]> {
+    return this.httpClient.get<song[]>(API_URL + `/search` + `/${name}`);
+  }
+
   API = `${environment.API_SONG}`;
+
   getAllSong(): Observable<song[]> {
-    return this.httpClient.get<song[]>(this.API );
+    return this.httpClient.get<song[]>(this.API);
   }
 
   createSong(song: song): Observable<song> {
-    return this.httpClient.post<song>(this.API ,song );
+    return this.httpClient.post<song>(this.API, song);
   }
 
   findByIdSong(id: number): Observable<song> {
