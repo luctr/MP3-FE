@@ -41,4 +41,8 @@ export class SongService {
     return this.httpClient.delete<song>(`${this.API}${id}`);
   }
 
+  getTop6New(): Observable<song[]> {
+    return this.httpClient.get<song[]>(API_URL + `/top6`);
+  }
+
 }
