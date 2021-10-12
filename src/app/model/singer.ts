@@ -1,6 +1,5 @@
-import {User} from "./user";
 export interface Singer {
-  id?: string;
+  id?: number;
   name?: string;
   sex?: string;
   dateOfBirth?: string;

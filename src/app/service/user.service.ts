@@ -14,6 +14,9 @@ export class UserService {
   findByName(name: string): Observable<User> {
     return this.http.get<User>(API_URL + `/search?name=`+ name);
   }
+  findByUserName(name: string): Observable<User> {
+    return this.http.get<User>(API_URL + '/searchUserName/' +  name);
+  }
   update(id: string, user: User): Observable<User> {
     return this.http.put<User>(API_URL + `/${id}`, user);
   }

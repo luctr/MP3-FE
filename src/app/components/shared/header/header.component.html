@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" xmlns="http://www.w3.org/1999/html">
   <a class="navbar-brand" href="#">BlackFriday</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,8 +25,84 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
-      <li class="nav-item"  *ngIf="userName != ''">
-        <a class="nav-link" href="#">Upload Music</a>
+      <li class="nav-item" *ngIf="userName != ''">
+
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter">Upload Music</a>
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+
+                <form class="row g-3 needs-validation" [formGroup]="songForm"  (ngSubmit)="createSong()" novalidate >
+                  <div class="col-md-6">
+                    <label  class="form-label">Name Song</label>
+                    <input type="text" class="form-control"  formControlName="name" >
+<!--                    <div class="valid-feedback">-->
+<!--                      Looks good!-->
+<!--                    </div>-->
+                  </div>
+                  <div class="col-md-6">
+                    <label  class="form-label" >description</label>
+                    <input type="text" class="form-control"  formControlName="description" >
+
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">File MP3</label>
+                    <div class="input-group has-validation">
+                      <input type="file" class="form-control" (change)="showPreviewMp3($event)" #fileUploader aria-describedby="inputGroupPrepend" >
+                      <img [src]="mp3Src" (click)="fileUploader.click()"/></div>
+
+                    </div>
+                  <div class="col-md-6">
+                    <label  class="form-label">avatar</label>
+                    <input type="file" class="form-control" (change)="showPreviewAvatar($event)" #fileUploader >
+                    <img [src]="imgSrc" (click)="fileUploader.click()"/></div>
+
+                  <div class="col-md-6">
+                    <label  class="form-label"> author</label>
+                    <input type="text" class="form-control"  formControlName="author" >
+                  </div>
+                    <div class="col-md-6"></div>
+                  <div class="col-md-3">
+                    <label  class="form-label">SongCategory</label>
+                    <select class="form-select" formControlName="songCategory" >
+                      <option    *ngFor="let songCategory of songCategories" [value]="songCategory.id" >{{songCategory.name}}</option>
+                    </select>
+                  </div>
+
+            <div class="col-md-3">
+              <label  class="form-label">singer</label>
+              <select class="form-select"  ngModel formControlName="singer" >
+                <option    *ngFor="let singer of singers" [value]="singer.id" >{{singer.name}}</option>
+              </select>
+
+            </div>
+                  <div class="col-12">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" >Save changes</button>
+                  </div>
+                </form>
+
+              </div>
+              <div class="modal-footer">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
       </li>
 
     </ul>
@@ -36,17 +112,18 @@
 
 
       <a class="nav-link disabled" *ngIf="userName == ''" href="/login">Login/Register</a>
-<!--      <a class="nav-link disabled" *ngIf="userName == ''" href="#"></a>-->
+      <!--      <a class="nav-link disabled" *ngIf="userName == ''" href="#"></a>-->
       <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
          aria-expanded="false" *ngIf="userName != ''" style="text-decoration: none">
         <mat-icon>
-        perm_circle
-      </mat-icon>
+          perm_circle
+        </mat-icon>
         {{userName}}
 
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown2" style="left: 86%; text-align: center">
         <a class="nav-link disabled" [routerLink]="['/page/',userName]">Trang cá nhân</a>
+        <a class="nav-link disabled" [routerLink]="['/song/list',]">List Song</a>
         <a class="dropdown-item" (click)="logout()">Log Out
           <mat-icon>
             logout

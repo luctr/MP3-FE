@@ -27,7 +27,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatCardModule} from "@angular/material/card";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatStepperModule} from "@angular/material/stepper";
 import { LoginFormComponent } from './components/login-form/login-form.component';
@@ -35,12 +35,15 @@ import { SearchComponent } from './components/feature/search/search.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {InterceptorService} from "./service/interceptor.service";
 import {ListSongComponent} from "./components/song/list-song/list-song.component";
-import {CreateSongComponent} from "./components/song/create-song/create-song.component";
 
 import { ListPlaylistComponent } from './components/feature/list-playlist/list-playlist.component';
 import { MusicPlayerComponent } from './components/feature/music-player/music-player.component';
 import {NgxAudioPlayerModule} from "ngx-audio-player";
 import {CreatePlaylistComponent} from "./components/feature/create-playlist/create-playlist.component";
+import { EditSongComponent } from './components/song/edit-song/edit-song.component';
+import { DeleteSongComponent } from './components/song/delete-song/delete-song.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatDividerModule} from "@angular/material/divider";
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +58,6 @@ import {CreatePlaylistComponent} from "./components/feature/create-playlist/crea
     AppComponent,
     LoginFormComponent,
     ListSongComponent,
-    CreateSongComponent,
     WeekTopComponent,
     PageComponent,
     SingerComponent,
@@ -66,7 +68,10 @@ import {CreatePlaylistComponent} from "./components/feature/create-playlist/crea
     SearchComponent,
     ListPlaylistComponent,
     MusicPlayerComponent,
-    CreatePlaylistComponent
+    CreatePlaylistComponent,
+    EditSongComponent,
+    DeleteSongComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -90,6 +95,10 @@ import {CreatePlaylistComponent} from "./components/feature/create-playlist/crea
     NgxAudioPlayerModule,
     MatIconModule,
     MatMenuModule,
+    FormsModule,
+    MatDialogModule,
+    MatDividerModule,
+
   ],
   providers: [{provide: APP_BASE_HREF, useValue : '/' },
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}

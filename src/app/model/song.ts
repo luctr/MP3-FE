@@ -3,7 +3,7 @@ import {SongCategory} from "./song-category";
 import {Singer} from "./singer";
 
 export interface Song {
-  id?: string;
+  id?: number;
   name?: string;
   description?: string;
   mp3?: string;
@@ -12,4 +12,5 @@ export interface Song {
   user?: User;
   songCategory?: SongCategory;
   singer?: Singer;
+  count?:number;
 }
