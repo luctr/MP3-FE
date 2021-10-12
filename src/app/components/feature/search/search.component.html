@@ -3,7 +3,7 @@
   <div class="col-3"></div>
 
   <div class="col-6" *ngIf="check1==true">
-    <h1>Thông tin kinh nghiệm</h1>
+    <h1>Kết quả tìm kiếm bài hát</h1>
     <div>
       <a routerLink="/exp/create">Tạo mới</a>
     </div>
@@ -67,7 +67,7 @@
     </div>
   </div>
 </section>
-<div class="col-6">
+<div class="col-6" *ngIf="check3==true">
   <h1>Danh sách ca sĩ</h1>
   <div>
     <a routerLink="/singer/create">Tạo mới</a>
