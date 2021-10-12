@@ -1,0 +1,23 @@
+<!--  <div _ngcontent-gvg-c71="" class="song-name" *ngFor="let songList of songList index as i" ><p _ngcontent-gvg-c71="">{{i+1}}. {{songList.name}}</p>  <p>{{songList.singer?.name}}</p>-->
+<!--  <audio _ngcontent-gvg-c71="" preload="auto" controls="">-->
+<!--    <source _ngcontent-gvg-c71="" src="https://firebasestorage.googleapis.com/v0/b/mudule6.appspot.com/o/Muon%20Roi%20Ma%20Sao%20Con%20-%20Son%20Tung%20M-TP.mp3?alt=media&token=1d43b9d0-ef92-4e38-9034-4730dbbcc193">-->
+<!--  </audio></div>-->
+<div class="media" *ngFor="let songList of songList index as i" >
+  <div class="media-left">
+    <div class="song-thumb active">
+      <figure class="image is-40x40" title="Chưa Bao Giờ Em Quên"><img style="height: 100px; width: 100px"
+        src="{{songList.avatar}}" alt="">
+      </figure>
+      <audio _ngcontent-gvg-c71="" preload="auto" controls="">
+        <source _ngcontent-gvg-c71="" src="{{songList.mp3}}">
+      </audio>
+      <div class="opacity "></div>
+      <div class="zm-actions-container">
+      </div>
+    </div>
+    <div class="card-info">
+      <div class="title-wrapper"><span class="item-title title">{{songList.name}}</span>
+      </div>
+      <h3 class="is-one-line subtitle"><a class="is-ghost" href="">{{songList.singer?.name}}</a></h3></div>
+  </div>
+  </div>
