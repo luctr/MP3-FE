@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SongService} from "../../../service/song/song.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
 import {Song} from "../../model/song";
 
@@ -17,31 +17,33 @@ topSong: Song[] = [];
   constructor(private songService: SongService,
               private router:Router,
               private activeRouter: ActivatedRoute,)
-  { }
+  {  this.activeRouter.paramMap.subscribe((paraMap: ParamMap) => {
+    // @ts-ignore
+    this.id = paraMap.get('id');
+    this.getCount(this.id)})}
 
   ngOnInit(): void {
     this.getAll();
     this.topForm = new FormGroup({
         count:new FormControl()
-    })
-    this.activeRouter.params.subscribe((data) => this.id = data.name);
-    this.getCount(this.id);
-
-    };
+    })    };
 
 
   getAll() {
       this.songService.getTopSong().subscribe((data)=>{
         this.topSong = data
-        return data;
+
       })
     }
 
   getCount(id:number) {
     this.songService.findByIdSong(id).subscribe((data) => {
-      this.topForm.get('count')?.setValue(data.count++);
+      console.log(data.count)
+      this.topForm = new FormGroup({
+        count: new FormControl(data.count++),
+
 
     })
-  }
-
+  })
+}
 }

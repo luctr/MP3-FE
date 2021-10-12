@@ -1,9 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Song} from "../../model/song";
 import {SongService} from "../../../service/song/song.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {FormControl, FormGroup} from "@angular/forms";
+import {Song} from "../../model/song";
 
 @Component({
   selector: 'app-song-detail',
@@ -11,13 +11,16 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./song-detail.component.scss']
 })
 export class SongDetailComponent implements OnInit {
-  songForm!: FormGroup;
-    id?: number ;
-
+  songForm: FormGroup =new FormGroup({});
+    id!: number ;
+    songs3: any = [];
   constructor(private songService: SongService,
-              private activeRoute: ActivatedRoute,
-              private router: Router,
-              private http: HttpClient) {
+              private activeRoute: ActivatedRoute) {
+    this.activeRoute.paramMap.subscribe((paraMap: ParamMap) => {
+      // @ts-ignore
+      this.id = paraMap.get('id');
+      this.showEditSong(this.id)
+    })
   }
 
   ngOnInit(): void {
@@ -32,13 +35,12 @@ export class SongDetailComponent implements OnInit {
     songCategory: new FormControl(),
     singer: new FormControl()
     })
-    this.activeRoute.params.subscribe((data) => this.id = data.name);
-    this.showEditSong(this.id);
+
   }
 
-  showEditSong(id:any) {
-    this.http.get<Song>(`http://localhost:8080/songs/${id}`).subscribe((data) => {
-      console.log(data)
+  showEditSong(id: number) {
+    this.songService.findByIdSong(id).subscribe(data => {
+      this.songs3 = data;
       this.songForm = new FormGroup({
         id: new FormControl(data.id),
         name: new FormControl(data.name),
@@ -46,12 +48,12 @@ export class SongDetailComponent implements OnInit {
         mp3: new FormControl(data.mp3),
         avatar: new FormControl(data.avatar),
         author: new FormControl(data.author),
-        user: new FormControl(data.user),
-        songCategory: new FormControl(data.songCategory),
-        singer: new FormControl(data.singer)
-
+        user: new FormControl(data.user?.username),
+        songCategory: new FormControl(data.songCategory?.name),
+        singer: new FormControl(data.singer?.name)
       })
-    })
+
+  })
   }
 
 

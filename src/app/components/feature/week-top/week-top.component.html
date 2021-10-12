@@ -185,19 +185,19 @@
           <!-- ***** New Hits Songs ***** -->
 <!--              <div *ngFor="let song of song">-->
                 <!-- Single Top Item -->
-                <div *ngFor="let song of song" class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
+                <div *ngFor="let songs of song" class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
                      data-wow-delay="100ms">
-                  <div type="button" routerLink="/song-detail"  class="first-part d-flex align-items-center">
+                  <div type="button" [routerLink]="['/song-detail',songs.id]"  class="first-part d-flex align-items-center">
                     <div class="thumbnail">
-                      <img src="{{song.avatar}}">
+                      <img src="{{songs.avatar}}">
                     </div>
                     <div class="content-">
-                      <h6>{{song.name}}</h6>
-                      <p>{{song.singer?.name}}</p>
+                      <h6>{{songs.name}}</h6>
+                      <p>{{songs.singer?.name}}</p>
                     </div>
                   </div>
                   <audio preload="auto" controls>
-                    <source src="{{song.mp3}}">
+                    <source src="{{songs.mp3}}">
                   </audio>
                 </div>
 <!--              </div>-->
@@ -212,17 +212,18 @@
             <h2>Popular Artist</h2>
           </div>
           <!-- Single Artist -->
-          <div *ngFor="let s of singers" class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="400ms">
-            <div class="thumbnail">
-              <img src="assets/img/bg-img/pa7.jpg" alt="">
-            </div>
-            <div class="content-">
-              <p>{{s.name}}</p>
-            </div>
-          </div>
+<!--          <div *ngFor="let s of singers" class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="400ms">-->
+<!--            <div class="thumbnail">-->
+<!--              <img src="assets/img/bg-img/pa7.jpg" alt="">-->
+<!--            </div>-->
+<!--            <div class="content-">-->
+<!--              <p>{{s.name}}</p>-->
+<!--            </div>-->
+<!--          </div>--><app-top-song></app-top-song>
         </div>
       </div>
     </div>
   </div>
+
 </section>
 <!-- ##### Miscellaneous Area End ##### -->

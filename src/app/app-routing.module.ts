@@ -42,7 +42,7 @@ const routes: Routes = [
   {path: 'login', component: LoginFormComponent},
   {path:'song-list', component :ListSongComponent},
   {path:'song-create', component :CreateSongComponent},
-  {path:'song-detail', component:SongDetailComponent}
+  {path:'song-detail/:id', component:SongDetailComponent}
 
 ];
 

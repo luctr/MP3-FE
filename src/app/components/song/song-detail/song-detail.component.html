@@ -1,40 +1,39 @@
 <div class="container">
   <h1>ShowForm</h1>
 
-  <form [formGroup]="songForm">
-    <div class="form-group">
-      <label>Name</label>
-      <p formControlName="name"></p>
-    </div>
 
     <div class="form-group">
-      <label>description</label>
-      <p formControlName="description"></p>
-    </div>
-
-    <div class="form-group">
-      <label>mp3:</label>
-      <p formControlName="mp3"></p>
+      <label>Name: </label>
+      {{songs3.name}}
     </div>
     <div class="form-group">
-      <label>avatar:</label>
-      <p formControlName="avatar"></p>
+      <label>description: </label>
+      {{songs3.description}}
     </div>
     <div class="form-group">
-      <label>author:</label>
-      <p formControlName="author"></p>
+    <audio preload="auto" controls>
+      <source src="{{songs3.mp3}}">
+      </audio>
     </div>
     <div class="form-group">
-      <label>user:</label>
-      <p formControlName="user"></p>
+      <label>avatar: </label>
+      {{songs3.avatar}}
     </div>
     <div class="form-group">
-      <label>songCategory:</label>
-      <p formControlName="songCategory"></p>
+      <label>author: </label>
+      {{songs3.author}}
     </div>
     <div class="form-group">
-      <label>singer:</label>
-      <p formControlName="singer"></p>
+      <label>user: </label>
+      {{songs3.user?.username}}
     </div>
-  </form>
-</div>
+    <div class="form-group">
+      <label>songCategory: </label>
+      {{songs3.songCategory?.name}}
+    </div>
+    <div class="form-group">
+      <label>singer: </label>
+      {{songs3.singer?.name}}
+    </div>
+ </div>
+<app-comment></app-comment>
