@@ -1,4 +1,5 @@
 export interface Singer {
+  id?: string;
   name?:string;
   sex?:string;
   dateOfBirth?:string

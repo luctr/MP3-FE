@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Singer} from "../model/singer";
-
+import {Singer} from "../components/model/Singer";
+const API = 'http://localhost:8080/singer'
 @Injectable({
   providedIn: 'root'
 })
@@ -30,5 +30,8 @@ export class SingerService {
   }
   top7New(): Observable<any>{
     return this.httpClient.get(`${this.API_URL}/top7`)
+  }
+  getByName(name: string): Observable<Singer[]> {
+    return this.httpClient.get<Singer[]>(API+'/search' +`/${name}`);
   }
 }

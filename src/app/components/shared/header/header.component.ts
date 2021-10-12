@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  key: string ='hello';
    userName : string = '';
   constructor(public router:Router) { }
 
@@ -23,5 +24,14 @@ export class HeaderComponent implements OnInit {
     alert('Logout Successfully!');
     window.location.reload()
   }
+search(){
+    // @ts-ignore
+  this.key = document.getElementById('key').value;
 
+console.log(this.key);
+  localStorage.setItem('key', this.key);
+  this.router.navigateByUrl('/page-search').then(() => {
+    window.location.reload();
+  });
+}
 }

@@ -1,12 +1,16 @@
 import {songCategory} from "./Category";
-import {user} from "./User";
+import { User } from "./User";
+import {Singer} from "./Singer";
+
 
 export interface song {
-  id: number;
-  name: string;
-  description: string;
-  mp3: string;
-  avatar: string;
-  songCategory: songCategory;
-  users: user;
+  id?: number;
+  name?: string;
+  description?: string;
+  mp3?: string;
+  author?: any;
+  avatar?: string;
+  songCategory?: songCategory;
+  users?: User;
+  singer?: Singer;
 }

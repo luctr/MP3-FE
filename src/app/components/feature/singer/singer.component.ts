@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Singer} from "../../../model/singer";
-import {ActivatedRoute} from "@angular/router";
-import {SingerService} from "../../../service/singer.service";
-import {error} from "@angular/compiler/src/util";
+import { SingerService } from 'src/app/service/singer.service';
+import { Singer } from '../../model/Singer';
 
 @Component({
   selector: 'app-singer',
@@ -16,7 +14,6 @@ export class SingerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // @ts-ignore
     this.singerService.getAll().subscribe(singList => {
       this.singersList = singList;
       console.log(singList);

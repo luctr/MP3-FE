@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {playlist} from "../components/model/Playlist";
-
-
+const API =  'http://localhost:8080/playlists'
 @Injectable({
   providedIn: 'root'
 })
@@ -28,7 +27,7 @@ export class PlaylistService {
   findByNameAsc(): Observable<any>{
     return this.httpClient.get(`${this.API_URL}/topName`)
   }
-  search(): Observable<any>{
-    return this.httpClient.get(`${this.API_URL}/search`)
+  getByName(name: string): Observable<playlist[]> {
+    return this.httpClient.get<playlist[]>(API+'/search' +`/${name}`);
   }
 }

@@ -3,8 +3,8 @@ import {SingerService} from "../../../service/singer.service";
 
 import {SongService} from "../../../service/song.service";
 import {ActivatedRoute} from "@angular/router";
-import {Song} from "../../../model/song";
 import {Singer} from "../../model/Singer";
+import { song } from '../../model/song';
 
 @Component({
   selector: 'app-week-top',
@@ -12,7 +12,7 @@ import {Singer} from "../../model/Singer";
   styleUrls: ['./week-top.component.scss']
 })
 export class WeekTopComponent implements OnInit {
-  song: Song [] = [];
+  song: song [] = [];
   singers: Singer [] = [];
 
   constructor(private songService: SongService,
@@ -30,7 +30,7 @@ export class WeekTopComponent implements OnInit {
   }
 
   getAll() {
-    return this.songService.getAllSong().subscribe((data: Song[]) => {
+    return this.songService.getAllSong().subscribe((data: song[]) => {
       this.song = data;
       console.log(data)
     });

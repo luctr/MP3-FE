@@ -7,6 +7,7 @@ import {SingerCreateComponent} from "./components/feature/singer/singer-create/s
 import {SingerEditComponent} from "./components/feature/singer/singer-edit/singer-edit.component";
 import {SingerDeleteComponent} from "./components/feature/singer/singer-delete/singer-delete.component";
 import {LoginFormComponent} from "./components/login-form/login-form.component";
+import {SearchComponent} from "./components/feature/search/search.component";
 import {ListSongComponent} from "./components/song/list-song/list-song.component";
 import {CreateSongComponent} from "./components/song/create-song/create-song.component";
 
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
   path: 'page/:name',
   component: PageComponent
+  },
+  {
+  path: 'page-search',
+  component: SearchComponent
   },
   {
   path: 'singer/list',

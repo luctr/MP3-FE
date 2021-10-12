@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Singer} from "../../../../model/singer";
 import {SingerService} from "../../../../service/singer.service";
 import {ActivatedRoute} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { Singer } from 'src/app/components/model/Singer';
 
 @Component({
   selector: 'app-singer-edit',
