@@ -1,9 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {SongService} from "../../../service/song/song.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
 import {FormControl, FormGroup} from "@angular/forms";
-import {Song} from "../../model/song";
 
 @Component({
   selector: 'app-song-detail',
