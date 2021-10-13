@@ -44,6 +44,7 @@ import { EditSongComponent } from './components/song/edit-song/edit-song.compone
 import { DeleteSongComponent } from './components/song/delete-song/delete-song.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatDividerModule} from "@angular/material/divider";
+import { SongTop6Component } from './components/feature/song-top6/song-top6.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,9 +70,7 @@ import {MatDividerModule} from "@angular/material/divider";
     ListPlaylistComponent,
     MusicPlayerComponent,
     CreatePlaylistComponent,
-    EditSongComponent,
-    DeleteSongComponent,
-
+    SongTop6Component
   ],
   imports: [
     BrowserModule,
@@ -96,9 +95,6 @@ import {MatDividerModule} from "@angular/material/divider";
     MatIconModule,
     MatMenuModule,
     FormsModule,
-    MatDialogModule,
-    MatDividerModule,
-
   ],
   providers: [{provide: APP_BASE_HREF, useValue : '/' },
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}

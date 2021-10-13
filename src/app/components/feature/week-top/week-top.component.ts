@@ -10,7 +10,7 @@ import {Song} from "../../../model/song";
   styleUrls: ['./week-top.component.scss']
 })
 export class WeekTopComponent implements OnInit {
-  songg: Song [] = [];
+  song: Song [] = [];
 
   constructor(private songService: SongService,
               private activeRouter: ActivatedRoute) {
@@ -21,11 +21,13 @@ export class WeekTopComponent implements OnInit {
 
   ngOnInit() {
     this.getAll();
+    console.log(this.getAll())
   }
 
   getAll() {
     return this.songService.getAllSong().subscribe((data: Song[]) => {
-      this.songg = data;
+      this.song = data;
+      console.log(data)
     });
   }
 

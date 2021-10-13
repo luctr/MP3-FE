@@ -37,7 +37,7 @@ export class SingerCreateComponent implements OnInit {
 
     }
     console.log(singer);
-    this.singerService.save(singer).subscribe(result => {
+    this.singerService.create(singer).subscribe(result => {
         this.singForm.reset();
         alert("ok");
       }, error => {

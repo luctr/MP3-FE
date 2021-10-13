@@ -1,1 +1,105 @@
-<p>search works!</p>
+<app-header></app-header>
+<div class="row">
+  <div class="col-3"></div>
+
+  <div class="col-6" *ngIf="check1==true">
+    <h1>Kết quả tìm kiếm bài hát</h1>
+    <div>
+      <a routerLink="/exp/create">Tạo mới</a>
+    </div>
+    <table class="table ">
+      <thead>
+      <tr>
+        <th scope="col">TT</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">mp3</th>
+        <th scope="col">Avatar</th>
+        <th scope="col">Author</th>
+        <th scope="col">SongCategory</th>
+        <th scope="col">Singer</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let songList of songs, index as i">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{songList.name}}</td>
+        <td>{{songList.description}}</td>
+        <td>{{songList.mp3}}</td>
+        <td>{{songList.avatar}}</td>
+        <td>{{songList.author}}</td>
+        <td>{{songList.songCategory}}</td>
+        <td>{{songList.singer}}</td>
+        <td><a [routerLink]="['/exp/edit/',songList.id]">Sửa</a></td>
+        <td><a [routerLink]="['/exp/delete/',songList.id]">Xóa</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-3">
+  </div>
+</div>
+<router-outlet></router-outlet>
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(assets/img/bg-img/breadcumb.jpg);">
+  <div class="bradcumbContent">
+    <p>See what’s new</p>
+    <h2>Playlist</h2>
+  </div>
+</section>
+<!-- ##### Events Area Start ##### -->
+<section class="events-area section-padding-100" *ngIf="check2 == true">
+  <div class="container">
+    <h2>List Playlist Play recently</h2>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let playlist of playlist">
+        <div class="single-event-area mb-30">
+          <div class="event-thumbnail">
+            <img src="{{playlist.description}}" alt="" style="height: 350px; width: 350px">
+          </div>
+          <div class="event-text">
+            <h4>{{playlist.name}}</h4>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<div class="col-6" *ngIf="check3==true">
+  <h1>Danh sách ca sĩ</h1>
+  <div>
+    <a routerLink="/singer/create">Tạo mới</a>
+  </div>
+  <table class="table ">
+    <thead>
+    <tr>
+      <th scope="col">TT</th>
+      <th scope="col">Tên ca sĩ</th>
+      <th scope="col">Giới tính</th>
+      <th scope="col">Ngày sinh</th>
+      <th scope="col">Tiểu sử</th>
+      <th scope="col">Năm sinh</th>
+      <th scope="col">Ban nhạc</th>
+      <th scope="col">Thêm thông tin</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let singerList of singers, index as i">
+      <th scope="row">{{i+1}}</th>
+      <td>{{singerList.name}}</td>
+      <td>{{singerList.sex}}</td>
+      <td>{{singerList.dateOfBirth}}</td>
+      <td>{{singerList.story}}</td>
+      <td>{{singerList.yearOfBirth}}</td>
+      <td>{{singerList.musicBand}}</td>
+      <td>{{singerList.MoreInformation}}</td>
+      <td><a [routerLink]="['/singer/edit/',singerList.id]">Sửa</a></td>
+      <td><a [routerLink]="['/singer/delete/',singerList.id]">Xóa</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

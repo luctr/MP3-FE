@@ -1,6 +1,6 @@
-import {User} from "./user";
 import {SongCategory} from "./song-category";
 import {Singer} from "./singer";
+import {User} from "../components/model/User";
 
 export interface Song {
   id?: number;

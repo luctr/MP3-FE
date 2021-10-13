@@ -1,15 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+
 import {Router} from "@angular/router";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {Song} from "../../../model/song";
 import {SongService} from "../../../service/song.service";
 import {UserService} from "../../../service/user.service";
-import {Singer} from "../../model/singer";
+
 import {SongCategoryService} from "../../../service/song-category.service";
 import {SingerService} from "../../../service/singer.service";
-import {User} from "../../../model/user";
+
 import {FormControl, FormGroup, NgForm} from "@angular/forms";
 import {finalize} from "rxjs/operators";
+import {Component, OnInit} from "@angular/core";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -29,8 +30,7 @@ export class HeaderComponent implements OnInit {
   songCategories : Song[];
   // @ts-ignore
   singers : Singer[];
-  // @ts-ignore
-  users1 : User[]
+
   songForm : FormGroup = new FormGroup({
     name : new FormControl(),
     description : new FormControl(),
@@ -70,6 +70,7 @@ export class HeaderComponent implements OnInit {
               private songCategoryService: SongCategoryService,
               private singer : SingerService) {
   }
+  key: string ='hello';
 
   ngOnInit(): void {
 
@@ -167,7 +168,7 @@ export class HeaderComponent implements OnInit {
      },
      count:this.songForm.value.count
    }
-   this.songService.createSong(this.song).subscribe(data =>{
+   this.songService.createSong(this.songs).subscribe(data =>{
     this.router.navigate([''])
    })
   }}
@@ -187,7 +188,15 @@ export class HeaderComponent implements OnInit {
       console.log('userId', this.id)
     })
   }
-
+search() {
+  // @ts-ignore
+  this.key = document.getElementById('key').value;
+  console.log(this.key);
+  localStorage.setItem('key', this.key);
+  this.router.navigateByUrl('/page-search').then(() => {
+    window.location.reload();
+  });
+}
   private getSongCategory() {
     this.songCategoryService.getAllSongCategory().subscribe((data) =>{
       this.songCategories = data

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import {SongService} from "../../../service/song.service";
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {Song} from "../../../model/song";
 
+
+import { song } from '../../model/song';
+import {ActivatedRoute, Router} from "@angular/router";
 @Component({
   selector: 'app-list-song',
   templateUrl:'./list-song.component.html',
@@ -11,8 +12,9 @@ import {Song} from "../../../model/song";
 })
 export class ListSongComponent implements OnInit {
 
-  song: Song [] = [];
+  song: song [] = [];
 
+  // @ts-ignore
   constructor(private songService: SongService,
               private router :Router,
               private activeRouter: ActivatedRoute) {
@@ -20,13 +22,12 @@ export class ListSongComponent implements OnInit {
       const id = paraMap.get('id');
     });
   }
-
   ngOnInit() {
     this.getAll();
   }
 
   getAll() {
-    return this.songService.getAllSong().subscribe((data: Song[]) => {
+    return this.songService.getAllSong().subscribe((data: song[]) => {
       this.song = data;
 
     });
