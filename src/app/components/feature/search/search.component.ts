@@ -3,8 +3,8 @@ import {SingerService} from "../../../service/singer.service";
 import {SongService} from "../../../service/song.service";
 import {PlaylistService} from "../../../service/playlist.service";
 import {Singer} from "../../model/Singer";
-import {playlist} from "../../model/Playlist";
-import {song} from "../../model/song";
+import {Playlist} from "../../model/Playlist";
+import { Song } from '../../model/Song';
 
 @Component({
   selector: 'app-search',
@@ -17,9 +17,9 @@ export class SearchComponent implements OnInit {
   check2: Boolean = false;
   check3: Boolean = false;
   name: string = '';
-  songs: song[] = [];
+  songs: Song[] = [];
   singers: Singer[] = [];
-  playlist: playlist[] = [];
+  playlist: Playlist[] = [];
 
   constructor(private singerService: SingerService,
               private songService: SongService,

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {playlist} from "../components/model/Playlist";
+import { Playlist } from '../components/model/Playlist';
 const API =  'http://localhost:8080/playlists'
 @Injectable({
   providedIn: 'root'
@@ -12,13 +12,13 @@ export class PlaylistService {
   getAll(): Observable<any>{
     return this.httpClient.get(this.API_URL)
   }
-  create(playlist: playlist): Observable<playlist>{
-    return this.httpClient.post<playlist>(this.API_URL,playlist)
+  create(playlist: Playlist): Observable<Playlist>{
+    return this.httpClient.post<Playlist>(this.API_URL,playlist)
   }
   findById(id: number): Observable<any>{
     return this.httpClient.get(`${this.API_URL}/${id}`)
   }
-  edit(id: number,playlist: playlist): Observable<any>{
+  edit(id: number,playlist: Playlist): Observable<any>{
     return this.httpClient.put(`${this.API_URL}/${id}`,playlist)
   }
   delete(id: number): Observable<any>{
@@ -27,7 +27,7 @@ export class PlaylistService {
   findByNameAsc(): Observable<any>{
     return this.httpClient.get(`${this.API_URL}/topName`)
   }
-  getByName(name: string): Observable<playlist[]> {
-    return this.httpClient.get<playlist[]>(API+'/search' +`/${name}`);
+  getByName(name: string): Observable<Playlist[]> {
+    return this.httpClient.get<Playlist[]>(API+'/search' +`/${name}`);
   }
 }

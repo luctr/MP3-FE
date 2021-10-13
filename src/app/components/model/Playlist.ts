@@ -1,10 +1,10 @@
-import { song } from "./song";
+import { Song } from "./Song";
 import { User } from "./User";
 
-export interface playlist {
+export interface Playlist {
   id : number;
   description : string;
   name : string;
   users: User;
-  song: song;
+  song: Song;
 }

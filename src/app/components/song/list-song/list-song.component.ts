@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {SongService} from "../../../service/song.service";
 import {ActivatedRoute} from "@angular/router";
-import { song } from '../../model/song';
+import { Song } from '../../model/Song';
 @Component({
   selector: 'app-list-song',
   templateUrl: './list-song.component.html',
@@ -10,7 +10,7 @@ import { song } from '../../model/song';
 })
 export class ListSongComponent implements OnInit {
 
-  song: song [] = [];
+  song: Song [] = [];
 
   constructor(private songService: SongService,
               private activeRouter: ActivatedRoute) {
@@ -24,7 +24,7 @@ export class ListSongComponent implements OnInit {
   }
 
   getAll() {
-    return this.songService.getAllSong().subscribe((data: song[]) => {
+    return this.songService.getAllSong().subscribe((data: Song[]) => {
       this.song = data;
       console.log(data)
     });

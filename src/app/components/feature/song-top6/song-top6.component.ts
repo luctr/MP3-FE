@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SongService} from "../../../service/song.service";
-import {song} from "../../model/song";
+import {Song} from "../../model/Song";
 import {Singer} from "../../model/Singer";
 
 @Component({
@@ -9,7 +9,7 @@ import {Singer} from "../../model/Singer";
   styleUrls: ['./song-top6.component.scss']
 })
 export class SongTop6Component implements OnInit {
-songList: song[] = [];
+songList: Song[] = [];
   singer!: Singer;
   constructor(private songService: SongService) { }
 
