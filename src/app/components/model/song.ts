@@ -2,8 +2,7 @@ import {songCategory} from "./Category";
 import { User } from "./User";
 import {Singer} from "./Singer";
 
-
-export interface song {
+export interface Song {
   id?: number;
   name?: string;
   description?: string;
