@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Track} from "ngx-audio-player";
+import {Playlist} from "../../model/Playlist";
+import {PlaylistService} from "../../../service/playlist.service";
+import {Song} from "../../model/Song";
 
 @Component({
   selector: 'app-music-player',
@@ -7,42 +10,43 @@ import {Track} from "ngx-audio-player";
   styleUrls: ['./music-player.component.scss']
 })
 export class MusicPlayerComponent implements OnInit {
+  playList?: Playlist;
   DisplayTitle = true;
   DisplayPlayList = true;
-  PageSizeOptions = [2,4,6];
+  PageSizeOptions = [2, 4, 6];
   DisplayVolumeControls = true;
   DisplayRepeatControls = true;
   DisplayArtist = false;
   DisplayDuration = false;
   DisablePositionSlider = true;
 
-// Material Style Advance Audio Player Playlist
-  Playlist: Track[] = [
-    {
-      title: 'Audio One Title',
-      link: 'Link to Audio One URL',
-      artist: 'Audio One Artist',
-
-    },
-    {
-      title: 'Audio Two Title',
-      link: 'Link to Audio Two URL',
-      artist: 'Audio Two Artist',
-
-    },
-    {
-      title: 'Audio Three Title',
-      link: 'assets/audio/dummy-audio.mp3',
-      artist: 'Audio Three Artist',
-
-    },
-  ];
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private playlistService: PlaylistService) {
   }
 
-  onEnded($event: string) {
+  ngOnInit(): void {
+    this.playlistService.findById(1).subscribe(data => {
+      this.playList = data;
+      console.log(data);
+      console.log("abc");
+      console.log(data.song.length)
+      for(let i=0; i< data.song.length; i++){
+        const track =
+        {
+          title: data.song[i].name,
+            link: data.song[i].mp3,
+          artist: data.song[i].avatar,
+        }
+        this.Playlist1.push(track);
+      }
+    }, error => {
+      console.log(error);
+    })
+  }
 
+  Playlist1: Track[] = [
+  ];
+
+  onEnded($event: string) {
+    console.log("hello")
   }
 }
