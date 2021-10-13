@@ -41,6 +41,8 @@ import { ListPlaylistComponent } from './components/feature/list-playlist/list-p
 import { MusicPlayerComponent } from './components/feature/music-player/music-player.component';
 import {NgxAudioPlayerModule} from "ngx-audio-player";
 import {CreatePlaylistComponent} from "./components/feature/create-playlist/create-playlist.component";
+import { TestComponent } from './components/feature/test/test.component';
+import { AngMusicPlayerModule } from 'ang-music-player';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +68,8 @@ import {CreatePlaylistComponent} from "./components/feature/create-playlist/crea
     SearchComponent,
     ListPlaylistComponent,
     MusicPlayerComponent,
-    CreatePlaylistComponent
+    CreatePlaylistComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -91,6 +94,7 @@ import {CreatePlaylistComponent} from "./components/feature/create-playlist/crea
     MatIconModule,
     MatMenuModule,
     FormsModule,
+    AngMusicPlayerModule,
   ],
   providers: [{provide: APP_BASE_HREF, useValue : '/' },
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
