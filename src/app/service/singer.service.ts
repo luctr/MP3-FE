@@ -23,7 +23,7 @@ export class SingerService {
     return this.httpClient.put(`${this.API_URL}/${id}`,singer)
   }
   delete(id: number): Observable<any>{
-    return this.httpClient.get(`${this.API_URL}/${id}`)
+    return this.httpClient.delete(`${this.API_URL}/${id}`)
   }
   search(name: string): Observable<any>{
     return this.httpClient.get(`${this.API_URL}/search/${name}`)

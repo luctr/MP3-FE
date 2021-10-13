@@ -55,10 +55,12 @@ export class SingerDeleteComponent implements OnInit {
     }
   }
   delete(){
+    console.log(this.id);
     // @ts-ignore
     this.singerService.delete(this.id).subscribe(abc =>{
-      alert('Edit Ok')
       history.back()
+    }, error => {
+      console.log(error);
     })
   }
 }

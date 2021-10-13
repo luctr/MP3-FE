@@ -71,7 +71,7 @@ export class SingerEditComponent implements OnInit {
     console.log(singer)
 
     // @ts-ignore
-    this.singerService.update(this.id,singer).subscribe(abc =>{
+    this.singerService.edit(this.id,singer).subscribe(abc =>{
       alert('Edit Ok')
       history.back()
     })
