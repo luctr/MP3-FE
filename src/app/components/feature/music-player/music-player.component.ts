@@ -26,9 +26,6 @@ export class MusicPlayerComponent implements OnInit {
   ngOnInit(): void {
     this.playlistService.findById(1).subscribe(data => {
       this.playList = data;
-      console.log(data);
-      console.log("abc");
-      console.log(data.song.length)
       for(let i=0; i< data.song.length; i++){
         const track =
         {
@@ -38,6 +35,7 @@ export class MusicPlayerComponent implements OnInit {
         }
         this.Playlist1.push(track);
       }
+      console.log(this.Playlist1)
     }, error => {
       console.log(error);
     })
