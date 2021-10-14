@@ -11,6 +11,7 @@ import {SearchComponent} from "./components/feature/search/search.component";
 import {ListSongComponent} from "./components/song/list-song/list-song.component";
 import {CreateSongComponent} from "./components/song/create-song/create-song.component";
 import {SongUserIdComponent} from "./components/song/song-user-id/song-user-id.component";
+import {PlayListUserIdComponent} from "./components/feature/play-list-user-id/play-list-user-id.component";
 
 const routes: Routes = [
   {
@@ -48,6 +49,9 @@ const routes: Routes = [
   {
     path: 'songs/user',
     component: SongUserIdComponent
+  }, {
+    path: 'playList/user/list',
+    component: PlayListUserIdComponent
   }
 ];
 

@@ -30,4 +30,7 @@ export class PlaylistService {
   getByName(name: string): Observable<Playlist[]> {
     return this.httpClient.get<Playlist[]>(API+'/search' +`/${name}`);
   }
+  getAllByUser_id(id: number): Observable<Playlist[]> {
+    return this.httpClient.get<Playlist[]>(API+'/user' +`/${id}`);
+  }
 }
