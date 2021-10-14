@@ -42,6 +42,7 @@ import { MusicPlayerComponent } from './components/feature/music-player/music-pl
 import {NgxAudioPlayerModule} from "ngx-audio-player";
 import {CreatePlaylistComponent} from "./components/feature/create-playlist/create-playlist.component";
 import { SongTop6Component } from './components/feature/song-top6/song-top6.component';
+import { SongUserIdComponent } from './components/song/song-user-id/song-user-id.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +69,8 @@ import { SongTop6Component } from './components/feature/song-top6/song-top6.comp
     ListPlaylistComponent,
     MusicPlayerComponent,
     CreatePlaylistComponent,
-    SongTop6Component
+    SongTop6Component,
+    SongUserIdComponent
   ],
   imports: [
     BrowserModule,

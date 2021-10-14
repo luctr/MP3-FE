@@ -32,6 +32,8 @@ export class PageComponent implements OnInit {
     this.userService.findByName(this.name).subscribe(result => {
       this.user = result
       this.id = result.id;
+      // @ts-ignore
+      localStorage.setItem('user_id', this.id);
       console.log(result);
       this.userForm = new FormGroup({
         username: new FormControl(this.user?.username,[Validators.required,Validators.minLength(3),Validators.maxLength(50)]),

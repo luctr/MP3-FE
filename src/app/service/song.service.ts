@@ -45,5 +45,7 @@ export class SongService {
   getTop6New(): Observable<Song[]> {
     return this.httpClient.get<Song[]>(API_URL + `/top6`);
   }
-
+  getAllByUser_id(id: number): Observable<Song[]> {
+    return this.httpClient.get<Song[]>(API_URL + `/user` + `/${id}`);
+  }
 }
