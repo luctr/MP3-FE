@@ -1,6 +1,6 @@
-import {SongCategory} from "./song-category";
-import {Singer} from "./singer";
-import {User} from "./user";
+import {SongCategory} from "./Song-category";
+import {Singer} from "./Singer";
+import {User} from "./User";
 
 export interface Song {
   id?: string;
@@ -12,5 +12,5 @@ export interface Song {
   user?: User;
   songCategory?: SongCategory;
   singer?: Singer;
-  count: number;
+  count?: number;
 }

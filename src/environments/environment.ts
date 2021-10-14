@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   API_LOGIN : "http://localhost:8080/auth",
   API_SONG : 'http://localhost:8080/songs/',
+  API_COMMENT : 'http://localhost:8080/comments',
   firebaseConfig : {
     apiKey: "AIzaSyBRIK-NUaGdxSM2rTWZTUs0nWyoHpiFqdk",
     authDomain: "mudule6.firebaseapp.com",

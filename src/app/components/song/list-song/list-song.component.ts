@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {SongService} from "../../../service/song/song.service";
 import {ActivatedRoute} from "@angular/router";
-import {Song} from "../../model/song";
+import {Song} from "../../model/Song";
 
 @Component({
   selector: 'app-list-song',

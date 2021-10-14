@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SongService} from "../../../service/song/song.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
-import {Song} from "../../model/song";
+import {Song} from "../../model/Song";
 
 @Component({
   selector: 'app-top-song',
@@ -20,7 +20,8 @@ topSong: Song[] = [];
   {  this.activeRouter.paramMap.subscribe((paraMap: ParamMap) => {
     // @ts-ignore
     this.id = paraMap.get('id');
-    this.getCount(this.id)})}
+    this.getCount(this.id)})
+  }
 
   ngOnInit(): void {
     this.getAll();
@@ -36,14 +37,13 @@ topSong: Song[] = [];
       })
     }
 
-  getCount(id:number) {
-    this.songService.findByIdSong(id).subscribe((data) => {
-      console.log(data.count)
-      this.topForm = new FormGroup({
-        count: new FormControl(data.count++),
 
+  getCount(id:any) {
+    this.songService.getCount(id).subscribe((data) => {
+      this.topSong = data;
+      console.log(this.id)
 
     })
-  })
-}
+  }
+
 }

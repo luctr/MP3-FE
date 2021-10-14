@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Singer} from "../../../model/singer";
+import {Singer} from "../../../model/Singer";
 import {SingerService} from "../../../../service/singer/singer.service";
 import {ActivatedRoute} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";

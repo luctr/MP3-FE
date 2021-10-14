@@ -3,8 +3,8 @@ import {SingerService} from "../../../service/singer/singer.service";
 
 import {SongService} from "../../../service/song/song.service";
 import {ActivatedRoute} from "@angular/router";
-import {Song} from "../../model/song";
-import {Singer} from "../../model/singer";
+import {Song} from "../../model/Song";
+import {Singer} from "../../model/Singer";
 import {TopSongComponent} from "../../song/top-song/top-song.component";
 
 @Component({
@@ -15,12 +15,12 @@ import {TopSongComponent} from "../../song/top-song/top-song.component";
 export class WeekTopComponent implements OnInit {
   song: Song [] = [];
   singers: Singer [] = [];
-
   constructor(private songService: SongService,
               private activeRouter: ActivatedRoute,
               private singerService: SingerService) {
     this.activeRouter.paramMap.subscribe(paraMap => {
       const id = paraMap.get('id');
+
     });
   }
 

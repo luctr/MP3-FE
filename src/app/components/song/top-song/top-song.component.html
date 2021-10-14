@@ -1,6 +1,6 @@
 <div *ngFor="let song of topSong"  class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
      data-wow-delay="100ms">
-  <div type="button" [routerLink]="['/song-detail',song.id]"  class="first-part d-flex align-items-center">
+  <div type="button" [routerLink]="['/song-detail',song.id]"  (click)="getCount(id)" class="first-part d-flex align-items-center">
     <div class="thumbnail">
       <img src="{{song.avatar}}">
     </div>
@@ -13,6 +13,5 @@
   <audio preload="auto"  controls>
     <source src="{{song.mp3}} ">
   </audio>
-   {{song.count}}
   </div>
 </div>

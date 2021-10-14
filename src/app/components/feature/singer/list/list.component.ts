@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Singer} from "../../../model/singer";
+import {Singer} from "../../../model/Singer";
 import {SingerService} from "../../../../service/singer/singer.service";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";

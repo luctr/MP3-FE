@@ -1,5 +1,5 @@
-import {Song} from "./song";
-import {User} from "./user";
+import {Song} from "./Song";
+import {User} from "./User";
 
 export interface playlist {
   id ?: number;
