@@ -1,1 +1,21 @@
-<p>create-playlist works!</p>
+
+<h1 style="text-align: center">Create Playlist!</h1>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="playlistForm" (ngSubmit)="newPlayList()">
+    <p>
+      <a>Name Playlist : </a>
+      <br>
+      <input type="text" formControlName="name" required>
+    </p>
+    <p>
+      <a>Description Playlist : </a>
+      <br>
+      <input type="text" formControlName="description" required>
+    </p>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">No Thanks</button>
+      <button mat-button cdkFocusInitial>Create</button>
+    </div>
+  </form>
+</mat-dialog-content>
+

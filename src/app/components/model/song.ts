@@ -1,5 +1,6 @@
 import {songCategory} from "./Category";
 import {user} from "./User";
+import {Playlist} from "../../model/playlist";
 
 export interface song {
   id: number;
@@ -9,4 +10,5 @@ export interface song {
   avatar: string;
   songCategory: songCategory;
   users: user;
+  playlist:Playlist
 }

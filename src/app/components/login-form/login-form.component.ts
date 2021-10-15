@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {SignInForm} from "../model/SignInForm";
 import {AuthService} from "../../service/auth.service";
 import {Router} from "@angular/router";
@@ -40,9 +40,9 @@ export class LoginFormComponent implements OnInit {
     }),
 
       this.signUpForm = new FormGroup({
-        username: new FormControl(''),
-        password: new FormControl(''),
-        phoneNumber: new FormControl(''),
+        username: new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(50)]),
+        password: new FormControl('',[Validators.required,Validators.minLength(10)]),
+        phoneNumber: new FormControl('',[Validators.required, Validators.pattern(/^\+84\d{9}$/)]),
       })
   }
 
@@ -53,9 +53,10 @@ export class LoginFormComponent implements OnInit {
         password : this.signUpForm.value.password,
         phoneNumber : this.signUpForm.value.phoneNumber,
       }
-      console.log(this.sign)
       this.authService.signUp(this.sign).subscribe(result =>{
-        this.router.navigateByUrl("/login")
+        alert("Sign Up Success !!")
+        // this.router.navigateByUrl("/login")
+        window.location.reload()
       },error1 => alert("lỗi"))
     }
 

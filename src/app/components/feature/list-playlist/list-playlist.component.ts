@@ -17,7 +17,6 @@ export class ListPlaylistComponent implements OnInit {
   getAll(){
     this.playlistService.getAll().subscribe(playlist => {
       this.playlists = playlist;
-      console.log(playlist)
     })
   }
 

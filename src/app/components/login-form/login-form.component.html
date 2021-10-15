@@ -32,17 +32,25 @@
       <form (ngSubmit)="signUp()" [formGroup]="signUpForm">
         <div class="input">
           <label for="regname">Username</label>
-          <input type="text" formControlName="username" id="regname" minlength="3" maxlength="20">
-<!--          <mat-error >User name is must more than e character</mat-error>-->
-<!--          <mat-error>User name is not required</mat-error>-->
-          <span class="spin"></span>
+          <input type="text" formControlName="username"  id="regname" required>
+          <br>
+          <div class="col-md-12 alert alert-danger" role="alert"
+               *ngIf="signUpForm.get('username')?.errors?.required && signUpForm.get('username')?.touched">
+            Tên không được để trống
+          </div>
+<!--          <span class="spin"></span>-->
         </div>
 
         <div class="input">
           <label for="regpass">Password</label>
           <input type="password" formControlName="password" id="regpass">
-          <span class="spin"></span>
+          <span class="spin"> </span>
+          <div class="col-md-12 alert alert-danger" role="alert"
+               *ngIf="signUpForm.get('password')?.errors?.required && signUpForm.get('password')?.touched">
+            Password không được để trống
+          </div>
         </div>
+
 
 <!--        <div class="input">-->
 <!--          <label for="reregpass">Repeat Password</label>-->
@@ -52,7 +60,11 @@
         <div class="input">
           <label for="phoneNumber">Phone Number</label>
           <input type="text" formControlName="phoneNumber" id="phoneNumber">
-          <span class="spin"></span>
+          <p style="color: #e3e3e3">Định dạng :+84 và 9 chữ số tiếp theo (VD: +84123456789)</p>
+<!--          <div class="col-md-12 alert alert-danger" role="alert"-->
+<!--               *ngIf="signUpForm.get('phoneNumber')?.errors?.pattern">-->
+<!--            Số điện thoại phải bắt đầu với +84 và 9 chữ số tiếp theo (VD: +84123456789)-->
+<!--          </div>-->
         </div>
         <div class="button">
         <button><span>NEXT</span></button>

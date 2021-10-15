@@ -5,6 +5,6 @@ export interface playlist {
   id : number;
   description : string;
   name : string;
-  users: user;
-  song: song;
+  user: user;
+  song: song[];
 }

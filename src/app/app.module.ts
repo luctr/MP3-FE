@@ -27,7 +27,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatCardModule} from "@angular/material/card";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatStepperModule} from "@angular/material/stepper";
 import { LoginFormComponent } from './components/login-form/login-form.component';
@@ -36,11 +36,13 @@ import {MatMenuModule} from "@angular/material/menu";
 import {InterceptorService} from "./service/interceptor.service";
 import {ListSongComponent} from "./components/song/list-song/list-song.component";
 import {CreateSongComponent} from "./components/song/create-song/create-song.component";
-
 import { ListPlaylistComponent } from './components/feature/list-playlist/list-playlist.component';
 import { MusicPlayerComponent } from './components/feature/music-player/music-player.component';
 import {NgxAudioPlayerModule} from "ngx-audio-player";
 import {CreatePlaylistComponent} from "./components/feature/create-playlist/create-playlist.component";
+import {MatSelectModule} from "@angular/material/select";
+import {MatOptionModule} from "@angular/material/core";
+import {MatDialogModule} from "@angular/material/dialog";
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +68,8 @@ import {CreatePlaylistComponent} from "./components/feature/create-playlist/crea
     SearchComponent,
     ListPlaylistComponent,
     MusicPlayerComponent,
-    CreatePlaylistComponent
+    CreatePlaylistComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -90,10 +93,15 @@ import {CreatePlaylistComponent} from "./components/feature/create-playlist/crea
     NgxAudioPlayerModule,
     MatIconModule,
     MatMenuModule,
+    FormsModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatDialogModule
   ],
   providers: [{provide: APP_BASE_HREF, useValue : '/' },
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
   ],
+  entryComponents:[CreatePlaylistComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
