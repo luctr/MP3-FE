@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {Song} from "../../../model/song";
 import {Singer} from "../../model/singer";
-import {User} from "../../../model/user";
 import {SongService} from "../../../service/song.service";
 import {UserService} from "../../../service/user.service";
 import {SongCategoryService} from "../../../service/song-category.service";
 import {SingerService} from "../../../service/singer.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
+import {Song} from "../../model/song";
 
 @Component({
   selector: 'app-delete-song',

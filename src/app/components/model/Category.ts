@@ -1,4 +1,4 @@
-export interface songCategory {
+export interface SongCategory {
   id : number;
   name : string;
 }

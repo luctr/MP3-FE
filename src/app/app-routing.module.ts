@@ -10,6 +10,7 @@ import {LoginFormComponent} from "./components/login-form/login-form.component";
 import {ListSongComponent} from "./components/song/list-song/list-song.component";
 import {DeleteSongComponent} from "./components/song/delete-song/delete-song.component";
 import {EditSongComponent} from "./components/song/edit-song/edit-song.component";
+import {HeaderComponent} from "./components/shared/header/header.component";
 
 
 
@@ -43,6 +44,7 @@ const routes: Routes = [
   {path:'song/list', component :ListSongComponent},
   {path:'song/delete/:id', component :DeleteSongComponent},
   {path:'song/edit/:id', component :EditSongComponent},
+  {path:'song/create', component :HeaderComponent},
 ];
 
 

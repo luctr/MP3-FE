@@ -1,28 +1,55 @@
-<div class="col-8">
-  <div>
-    <button type="button" class="btn btn-secondary" data-dismiss="modal" [routerLink]="['/']">Back</button>
-  </div>
-  <div class="new-hits-area mb-100">
-    <div class="section-heading text-left mb-50 wow fadeInUp col-6" data-wow-delay="50ms">
-      <h2>List Song</h2>
-    </div>
-    <div *ngFor="let song of song"
+<app-header></app-header>  <br>
+<!--<div align="center">-->
+<!--<div class="col-6" style="text-align: center" >-->
+
+<!--  <div>-->
+<!--    <button type="button" class="btn btn-secondary" data-dismiss="modal" [routerLink]="['/']">Back</button>-->
+<!--  </div>-->
+<!--  <div class="new-hits-area mb-100" >-->
+<!--    <div class="section-heading text-left mb-50 wow fadeInUp col-6" data-wow-delay="50ms">-->
+<!--      <h2>List Song</h2>-->
+<!--    </div>-->
+<!--    <div *ngFor="let song of song"-->
+<!--         class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"-->
+<!--         data-wow-delay="100ms">-->
+<!--      <div type="button" class="first-part d-flex align-items-center">-->
+<!--        <div class="thumbnail">-->
+<!--          <img src="{{song.avatar}}">-->
+<!--        </div>-->
+<!--        <div class="content-">-->
+<!--          <h6>{{song.name}}</h6>-->
+<!--          <p>{{song.singer?.name}}</p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <audio preload="auto" controls>-->
+<!--        <source src="{{song.mp3}}">-->
+<!--      </audio>-->
+<!--      <span class="material-icons" data-toggle="modal" data-target="#exampleModalCenter" [routerLink]="['/song/edit',song.id]">edit</span>-->
+<!--      <span class="material-icons" data-toggle="modal" data-target="#exampleModalCenter" [routerLink]="['/song/delete',song.id]">delete</span>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div align="center">
+<div class="col-8" style="text-align: center" >
+
+  <table>
+    <tr  *ngFor="let song of song"
          class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
          data-wow-delay="100ms">
-      <div type="button" class="first-part d-flex align-items-center">
-        <div class="thumbnail">
-          <img src="{{song.avatar}}">
-        </div>
-        <div class="content-">
-          <h6>{{song.name}}</h6>
-          <p>{{song.singer?.name}}</p>
-        </div>
-      </div>
-      <audio preload="auto" controls>
+      <td  width="20%" type="button" class="first-part d-flex align-items-center"> <div class="thumbnail">
+        <img width="80" height="80" src="{{song.avatar}}">
+      </div></td>
+      <td width="30%"><div class="content-">
+        <h6>{{song.name}}</h6>
+        <p>{{song.singer?.name}}</p>
+      </div></td>
+      <td > <audio preload="auto" controls>
         <source src="{{song.mp3}}">
-      </audio>
-      <span class="material-icons" data-toggle="modal" data-target="#exampleModalCenter" [routerLink]="['/song/edit',song.id]">edit</span>
-      <span class="material-icons" data-toggle="modal" data-target="#exampleModalCenter" [routerLink]="['/song/delete',song.id]">delete</span>
-    </div>
-  </div>
+      </audio></td>
+      <td > <span class="material-icons" data-toggle="modal" data-target="#exampleModalCenter" [routerLink]="['/song/edit',song.id]">edit</span>
+        <span class="material-icons" data-toggle="modal" data-target="#exampleModalCenter" [routerLink]="['/song/delete',song.id]">delete</span></td>
+    </tr>
+  </table>
+</div>
 </div>

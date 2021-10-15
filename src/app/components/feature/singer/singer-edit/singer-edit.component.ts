@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Singer} from "../../../../model/singer";
 import {SingerService} from "../../../../service/singer.service";
 import {ActivatedRoute} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Singer} from "../../../model/singer";
 
 @Component({
   selector: 'app-singer-edit',
@@ -10,7 +10,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./singer-edit.component.scss']
 })
 export class SingerEditComponent implements OnInit {
-  singer: Singer | undefined;
+  // @ts-ignore
+  singer: Singer
   id: string | undefined;
 
   constructor(private singerService: SingerService, private ac: ActivatedRoute) {

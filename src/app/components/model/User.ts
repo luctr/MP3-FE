@@ -1,9 +1,9 @@
 import {Role} from "./role";
 
-export interface user {
+export interface User {
 
   username: string;
   password: string;
   phoneNumber: string;
-  roles: Role;
+  // roles: Role;
 }

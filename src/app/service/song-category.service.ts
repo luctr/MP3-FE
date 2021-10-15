@@ -2,20 +2,19 @@ import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Song} from "../model/song";
-import {SongCategory} from "../model/song-category";
+import {SongCategory} from "../components/model/song-category";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SongCategoryService {
   API = `${environment.API_SONG_CATEGORY}`;
-
   constructor(private http: HttpClient) {
   }
 
-  getAllSongCategory(): Observable<Song[]> {
-    return this.http.get<Song[]>(this.API );
+  getAllSongCategory(): Observable<SongCategory[]> {
+    return this.http.get<SongCategory[]>(this.API );
   }
 
   createSongCategory(songCategory: SongCategory): Observable<SongCategory> {

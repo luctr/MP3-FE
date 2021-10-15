@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../../../model/user";
 import {UserService} from "../../../service/user.service";
 import {ActivatedRoute} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {User} from "../../model/User";
 
 @Component({
   selector: 'app-page',
@@ -33,17 +33,23 @@ export class PageComponent implements OnInit {
     // @ts-ignore
     this.userService.findByName(this.name).subscribe(result => {
       this.user = result
+      // @ts-ignore
       this.id = result.id;
       console.log(result);
+      // @ts-ignore
       this.userForm = new FormGroup({
+        // @ts-ignore
         username: new FormControl(this.user.username,[Validators.required,Validators.minLength(3),Validators.maxLength(50)]),
+        // @ts-ignore
         password: new FormControl(this.user.password, [Validators.required,Validators.minLength(10)]),
+        // @ts-ignore
         phoneNumber: new FormControl(this.user.phoneNumber,[Validators.required, Validators.pattern(/^\+84\d{9}$/)])
       })
     }, error => {
       console.log(error);
     })
-    this.user = {
+    // @ts-ignore
+      this.user = {
       username: '',
       password: '',
       phoneNumber: '',

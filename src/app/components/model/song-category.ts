@@ -1,4 +1,4 @@
 export interface SongCategory {
-  id: number;
+  id : number;
 name?: string
 }

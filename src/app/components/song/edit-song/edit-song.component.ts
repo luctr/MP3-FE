@@ -1,5 +1,4 @@
  import { Component, OnInit } from '@angular/core';
- import {Song} from "../../../model/song";
  import {Singer} from "../../model/singer";
  import {FormControl, FormGroup} from "@angular/forms";
  import {ActivatedRoute, ParamMap, Router} from "@angular/router";
@@ -9,6 +8,7 @@
  import {SongCategoryService} from "../../../service/song-category.service";
  import {SingerService} from "../../../service/singer.service";
  import {finalize} from "rxjs/operators";
+ import {Song} from "../../model/song";
 
 @Component({
   selector: 'app-edit-song',
@@ -16,19 +16,15 @@
   styleUrls: ['./edit-song.component.scss']
 })
 export class EditSongComponent implements OnInit {
-  imgSrc: any;
-  mp3Src: any;
-  selectedImageMP3: any;
-  selectedImageAvatar: any;
-  urlMP3: any;
+
+  img: any;
+  selectedImage: any;
+  url: any;
   id: any;
-  urlAvatar: any;
   idSongCategory:any;
   idSinger:any;
-  // @ts-ignore
-  songCategories : Song[];
-  // @ts-ignore
-  singers : Singer[];
+  songCategories : Song[]= [];
+  singers : Singer[]=[];
 
   songs : Song ={};
   songFormEdit : FormGroup = new FormGroup({})
@@ -59,57 +55,31 @@ export class EditSongComponent implements OnInit {
      singer : new FormControl(),
    })
   }
-  subMp3() {
-    if (this.selectedImageMP3 != null) {
-      const filePath = `avatar/${this.selectedImageMP3.name.split('.').splice(0, -1).join('.')}_${new Date().getTime()}`;
+
+  sub() {
+    if (this.selectedImage != null) {
+      const filePath = `avatar/${this.selectedImage.name.split('.').splice(0, -1).join('.')}_${new Date().getTime()}`;
       const fileRef = this.storage.ref(filePath);
-      this.storage.upload(filePath, this.selectedImageMP3).snapshotChanges().pipe(
+      this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
         finalize(() => (
           fileRef.getDownloadURL().subscribe(url => {
-            this.urlMP3 = url
+            this.url = url
           })))
       )
         .subscribe();
     }
   }
 
-  showPreviewMp3( event: any) {
+  showPreview( event: any) {
     if (event.target.files && event.target.files[0]) {
-      this.selectedImageMP3 = event.target.files[0];
+      this.selectedImage = event.target.files[0];
       const reader = new FileReader();
-      reader.onload = (e: any) => this.mp3Src = e.target.result;
+      reader.onload = (e: any) => this.img = e.target.result;
       reader.readAsDataURL(event.target.files[0]);
-      this.selectedImageMP3 = event.target.files[0];
-      this.subMp3()
+      this.selectedImage = event.target.files[0];
+      this.sub()
     } else {
-      this.selectedImageMP3 = null;
-    }
-  }
-
-  subAvatar() {
-    if (this.selectedImageAvatar != null) {
-      const filePath = `avatar/${this.selectedImageAvatar.name.split('.').splice(0, -1).join('.')}_${new Date().getTime()}`;
-      const fileRef = this.storage.ref(filePath);
-      this.storage.upload(filePath, this.selectedImageAvatar).snapshotChanges().pipe(
-        finalize(() => (
-          fileRef.getDownloadURL().subscribe(url => {
-            this.urlAvatar = url
-          })))
-      )
-        .subscribe();
-    }
-  }
-
-  showPreviewAvatar( event: any) {
-    if (event.target.files && event.target.files[0]) {
-      this.selectedImageAvatar = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = (e: any) => this.imgSrc = e.target.result;
-      reader.readAsDataURL(event.target.files[0]);
-      this.selectedImageAvatar = event.target.files[0];
-      this.subAvatar()
-    } else {
-      this.selectedImageAvatar= null;
+      this.selectedImage = null;
     }
   }
 
@@ -154,7 +124,7 @@ export class EditSongComponent implements OnInit {
       author  : this.songFormEdit.value.name,
       songCategory :this.songFormEdit.value.songCategory = {
         id : this.songFormEdit.value.songCategory
-      },
+      },   // @ts-ignore
       singer :this.songFormEdit.value.singer = {
         id : this.songFormEdit.value.singer
       }

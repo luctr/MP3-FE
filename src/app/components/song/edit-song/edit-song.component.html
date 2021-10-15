@@ -28,17 +28,17 @@
           <div class="col-md-6">
             <label class="form-label">File MP3</label>
             <div class="input-group has-validation">
-              <input type="file" class="form-control" (change)="showPreviewMp3($event)" #fileUploader aria-describedby="inputGroupPrepend" >
-              <img [src]="mp3Src" (click)="fileUploader.click()"/>
-              <img [src]="songFormEdit.get('mp3')?.value" *ngIf="mp3Src == null"/>
+              <input type="file" class="form-control" (change)="showPreview($event)" #fileUploader aria-describedby="inputGroupPrepend" >
+              <img [src]="img" (click)="fileUploader.click()"/>
+              <img [src]="songFormEdit.get('mp3')?.value" *ngIf="img == null"/>
             </div>
 
           </div>
           <div class="col-md-6">
             <label  class="form-label">avatar</label>
-            <input type="file" class="form-control" (change)="showPreviewAvatar($event)" #fileUploader >
-            <img [src]="imgSrc" (click)="fileUploader.click()"/>
-            <img [src]="songFormEdit.get('avatar')?.value" *ngIf="imgSrc == null"/>
+            <input type="file" class="form-control" (change)="showPreview($event)" #fileUploader >
+            <img [src]="img" (click)="fileUploader.click()"/>
+            <img [src]="songFormEdit.get('avatar')?.value" *ngIf="img == null"/>
           </div>
 
           <div class="col-md-6">
