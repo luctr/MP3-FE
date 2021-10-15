@@ -17,7 +17,8 @@ export class SongDetailComponent implements OnInit {
     this.activeRoute.paramMap.subscribe((paraMap: ParamMap) => {
       // @ts-ignore
       this.id = paraMap.get('id');
-      this.showEditSong(this.id)
+      this.showEditSong(this.id);
+      this.getCount(this.id);
     })
   }
 
@@ -53,6 +54,12 @@ export class SongDetailComponent implements OnInit {
 
   })
   }
+  getCount(id:any) {
+    this.songService.getCount(id).subscribe((data) => {
+      this.songs3 = data;
+      console.log(this.id)
 
+    })
+  }
 
 }
