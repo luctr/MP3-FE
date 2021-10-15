@@ -2,7 +2,7 @@
 <h2 class="text-center">
 Bình luận </h2>
 <div class="col-md-8 offset-md-2">
-  <input type="text" class="form-control" [formControl]="comments" (change)="change()">
+  <input type="text" class="form-control" [formControl]="comments" (change)="change()"*ngIf="userName != ''" >
 
   <ul class="cg">
     <hr>

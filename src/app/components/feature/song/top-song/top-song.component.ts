@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {SongService} from "../../../service/song/song.service";
+import {SongService} from "../../../../service/song/song.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
-import {Song} from "../../model/Song";
+import {Song} from "../../../model/Song";
 
 @Component({
   selector: 'app-top-song',

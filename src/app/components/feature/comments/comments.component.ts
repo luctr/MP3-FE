@@ -15,7 +15,7 @@ let _id = 1;
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent implements OnInit {
-
+  userName : string = '';
   todos: Comment[] = [];
   comments = new FormControl();
   id: string = '';
@@ -36,6 +36,7 @@ export class CommentsComponent implements OnInit {
   ngOnInit(): void {
     if (localStorage.getItem('user') != null){
       let obj = JSON.parse(<string>localStorage.getItem('user'));
+      this.userName = obj.name;
       this.findByUsername(obj.name)    }
     this.getAll();
     this.commentForm = new FormGroup({

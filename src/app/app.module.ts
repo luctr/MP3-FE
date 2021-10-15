@@ -34,16 +34,14 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { SearchComponent } from './components/feature/search/search.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {InterceptorService} from "./service/interceptor/interceptor.service";
-import {ListSongComponent} from "./components/song/list-song/list-song.component";
-import {CreateSongComponent} from "./components/song/create-song/create-song.component";
 
 import { ListPlaylistComponent } from './components/feature/list-playlist/list-playlist.component';
 import { MusicPlayerComponent } from './components/feature/music-player/music-player.component';
 import {NgxAudioPlayerModule} from "ngx-audio-player";
 import {CreatePlaylistComponent} from "./components/feature/create-playlist/create-playlist.component";
 import { ListComponent } from './components/feature/singer/list/list.component';
-import { SongDetailComponent } from './components/song/song-detail/song-detail.component';
-import { TopSongComponent } from './components/song/top-song/top-song.component';
+import { SongDetailComponent } from './components/feature/song/song-detail/song-detail.component';
+import { TopSongComponent } from './components/feature/song/top-song/top-song.component';
 import { CommentsComponent } from './components/feature/comments/comments.component';
 @NgModule({
   declarations: [
@@ -58,8 +56,6 @@ import { CommentsComponent } from './components/feature/comments/comments.compon
     WeekTopComponent,
     AppComponent,
     LoginFormComponent,
-    ListSongComponent,
-    CreateSongComponent,
     WeekTopComponent,
     PageComponent,
     SingerComponent,

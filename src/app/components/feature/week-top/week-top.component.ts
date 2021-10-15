@@ -5,7 +5,7 @@ import {SongService} from "../../../service/song/song.service";
 import {ActivatedRoute} from "@angular/router";
 import {Song} from "../../model/Song";
 import {Singer} from "../../model/Singer";
-import {TopSongComponent} from "../../song/top-song/top-song.component";
+import {TopSongComponent} from "../song/top-song/top-song.component";
 
 @Component({
   selector: 'app-week-top',

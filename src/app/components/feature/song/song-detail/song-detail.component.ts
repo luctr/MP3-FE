@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {SongService} from "../../../service/song/song.service";
+import {SongService} from "../../../../service/song/song.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
 
