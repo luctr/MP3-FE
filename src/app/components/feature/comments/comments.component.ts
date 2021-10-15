@@ -48,7 +48,8 @@ export class CommentsComponent implements OnInit {
 
   getAll() {
     this.commentService.getAllComment().subscribe(data => {
-      this.todos = data;
+        this.todos = data;
+
     });
   }
 
