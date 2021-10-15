@@ -1,12 +1,14 @@
 <div class="bg">
   <div class="cg">
   <h1 class="va" [ngStyle]="{color: '#6699FF'}">{{songs3.name}}</h1>
+    <hr>
+
     <div class="form-group">
-      <img src="{{songs3.avatar}}" alt="lỗi">
+      <img src="{{songs3.avatar}}" alt="error">
     </div>
-    <div class="form-group">
-      <audio preload="auto" controls>
-        <source src="{{songs3.mp3}}">
+    <div class="form-group"(click)="getCount(songs3.id)" >
+      <audio controls>
+        <source src="{{songs3.mp3}}" alt="wrong" >
       </audio>
     </div>
     <div class="form-group">

@@ -50,8 +50,9 @@ export class SongDetailComponent implements OnInit {
         user: new FormControl(data.user?.username),
         songCategory: new FormControl(data.songCategory?.name),
         singer: new FormControl(data.singer?.name)
-      })
 
+      })
+    console.log(data.mp3)
   })
   }
   getCount(id:any) {
