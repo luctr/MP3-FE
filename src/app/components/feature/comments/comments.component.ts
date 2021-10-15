@@ -18,7 +18,7 @@ export class CommentsComponent implements OnInit {
 
   todos: Comment[] = [];
   comments = new FormControl();
-  id!: number;
+  id: string = '';
   commentForm: FormGroup = new FormGroup({});
   user? : User ;
   song?: Song ;
@@ -28,7 +28,7 @@ export class CommentsComponent implements OnInit {
               private userService: UserService,private activeRoute:ActivatedRoute) {
     this.activeRoute.paramMap.subscribe((paraMap: ParamMap) => {
     // @ts-ignore
-    this.id = paraMap.get('id');
+      this.id = paraMap.get('id');
     this.findByIdSong(this.id);
   })
     }
@@ -61,7 +61,7 @@ export class CommentsComponent implements OnInit {
         complete: false,
         user: { id:this.user?.id,
                 username:this.user?.username},
-        song: { id:this.song?.id }
+        song: { id: this.id }
       };
       this.todos.push(todo);
       console.log(this.todos);

@@ -1,11 +1,7 @@
-<div class="container">
-  <h1>ShowForm</h1>
+<div class="bg">
+  <div class="cg">
+  <h1 class="va" [ngStyle]="{color: '#6699FF'}">{{songs3.name}}</h1>
 
-
-    <div class="form-group">
-      <label>Name: </label>
-      {{songs3.name}}
-    </div>
     <div class="form-group">
       <label>description: </label>
       {{songs3.description}}
@@ -35,5 +31,6 @@
       <label>singer: </label>
       {{songs3.singer?.name}}
     </div>
+  </div>
  </div>
 <app-comments></app-comments>
