@@ -12,6 +12,7 @@ import {Song} from "../components/model/Song";
   providedIn: 'root'
 })
 export class SongService {
+  [x: string]: any;
 
   constructor(private httpClient: HttpClient) {
   }

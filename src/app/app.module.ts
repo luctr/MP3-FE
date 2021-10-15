@@ -44,6 +44,12 @@ import {CreatePlaylistComponent} from "./components/feature/create-playlist/crea
 import { SongTop6Component } from './components/feature/song-top6/song-top6.component';
 import { SongUserIdComponent } from './components/song/song-user-id/song-user-id.component';
 import { PlayListUserIdComponent } from './components/feature/play-list-user-id/play-list-user-id.component';
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import {MatDialogModule} from "@angular/material/dialog";
+// import { SongListComponent } from './components/feature/song/song-list/song-list.component';
+// import { SongEditComponent } from './components/feature/song/song-edit/song-edit.component';
+// import { SongDeleteComponent } from './components/feature/song/song-delete/song-delete.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +78,10 @@ import { PlayListUserIdComponent } from './components/feature/play-list-user-id/
     CreatePlaylistComponent,
     SongTop6Component,
     SongUserIdComponent,
-    PlayListUserIdComponent
+    PlayListUserIdComponent,
+    // SongListComponent,
+    // SongEditComponent,
+    // SongDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -97,6 +106,9 @@ import { PlayListUserIdComponent } from './components/feature/play-list-user-id/
     MatIconModule,
     MatMenuModule,
     FormsModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatDialogModule,
   ],
   providers: [{provide: APP_BASE_HREF, useValue : '/' },
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}

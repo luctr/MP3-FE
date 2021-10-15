@@ -12,6 +12,7 @@
 
           <!-- Single Top Item -->
           <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="100ms">
+
             <div class="thumbnail">
               <img src="assets/img/bg-img/wt1.jpg" alt="">
             </div>
@@ -86,121 +87,226 @@
             <p>See what’s new</p>
             <h2>New Hits</h2>
           </div>
-
-<!--          &lt;!&ndash; Single Top Item &ndash;&gt;-->
-<!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">-->
-<!--            <div class="first-part d-flex align-items-center">-->
-<!--              <div class="thumbnail">-->
-<!--                <img src="assets/img/bg-img/wt7.jpg" alt="">-->
-<!--              </div>-->
-<!--              <div class="content-">-->
-<!--                <h6>Sam Smith</h6>-->
-<!--                <p>Underground</p>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <audio preload="auto" controls>-->
-<!--              <source src="assets/audio/dummy-audio.mp3">-->
-<!--            </audio>-->
-<!--          </div>-->
-
-<!--          &lt;!&ndash; Single Top Item &ndash;&gt;-->
-<!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="150ms">-->
-<!--            <div class="first-part d-flex align-items-center">-->
-<!--              <div class="thumbnail">-->
-<!--                <img src="assets/img/bg-img/wt8.jpg" alt="">-->
-<!--              </div>-->
-<!--              <div class="content-">-->
-<!--                <h6>Power Play</h6>-->
-<!--                <p>In my mind</p>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <audio preload="auto" controls>-->
-<!--              <source src="assets/audio/dummy-audio.mp3">-->
-<!--            </audio>-->
-<!--          </div>-->
-
-<!--          &lt;!&ndash; Single Top Item &ndash;&gt;-->
-<!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="200ms">-->
-<!--            <div class="first-part d-flex align-items-center">-->
-<!--              <div class="thumbnail">-->
-<!--                <img src="assets/img/bg-img/wt9.jpg" alt="">-->
-<!--              </div>-->
-<!--              <div class="content-">-->
-<!--                <h6>Cristinne Smith</h6>-->
-<!--                <p>My Music</p>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <audio preload="auto" controls>-->
-<!--              <source src="assets/audio/dummy-audio.mp3">-->
-<!--            </audio>-->
-<!--          </div>-->
-
-<!--          &lt;!&ndash; Single Top Item &ndash;&gt;-->
-<!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="250ms">-->
-<!--            <div class="first-part d-flex align-items-center">-->
-<!--              <div class="thumbnail">-->
-<!--                <img src="assets/img/bg-img/wt10.jpg" alt="">-->
-<!--              </div>-->
-<!--              <div class="content-">-->
-<!--                <h6>The Music Band</h6>-->
-<!--                <p>Underground</p>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <audio preload="auto" controls>-->
-<!--              <source src="assets/audio/dummy-audio.mp3">-->
-<!--            </audio>-->
-<!--          </div>-->
-
-<!--          &lt;!&ndash; Single Top Item &ndash;&gt;-->
-<!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="300ms">-->
-<!--            <div class="first-part d-flex align-items-center">-->
-<!--              <div class="thumbnail">-->
-<!--                <img src="assets/img/bg-img/wt11.jpg" alt="">-->
-<!--              </div>-->
-<!--              <div class="content-">-->
-<!--                <h6>Creative Lyrics</h6>-->
-<!--                <p>Songs and stuff</p>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <audio preload="auto" controls>-->
-<!--              <source src="assets/audio/dummy-audio.mp3">-->
-<!--            </audio>-->
-<!--          </div>-->
+          <!--          <div *ngFor="let song of song"  class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"-->
+          <!--               data-wow-delay="100ms">-->
+          <!--            <div type="button" [routerLink]="['/song-detail',song.id]"  class="first-part d-flex align-items-center">-->
+          <!--              <div class="thumbnail">-->
+          <!--                <img src="{{song.avatar}}">-->
+          <!--              </div>-->
+          <!--              <div class="content-">-->
+          <!--                <h6>{{song.name}}</h6>-->
+          <!--                <p>{{song.singer?.name}}</p>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <div >-->
+          <!--              <audio preload="auto"  controls>-->
+          <!--                <source src="{{song.mp3}} ">-->
+          <!--              </audio>-->
+          <!--            </div>-->
+          <!--          </div>-->
 
           <!-- Single Top Item -->
-<!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="350ms">-->
-<!--            <div class="first-part d-flex align-items-center">-->
-<!--              <div class="thumbnail">-->
-<!--                <img src="assets/img/bg-img/wt12.jpg" alt="">-->
-<!--              </div>-->
-<!--              <div class="content-">-->
-<!--                <h6>The Culture</h6>-->
-<!--                <p>Pop Songs</p>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <audio preload="auto" controls>-->
-<!--              <source src="assets/audio/dummy-audio.mp3">-->
-<!--            </audio>-->
-<!--          </div>-->
-          <!-- ***** New Hits Songs ***** -->
-<!--              <div *ngFor="let song of song">-->
-                <!-- Single Top Item -->
-                <div *ngFor="let song of song" class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
-                     data-wow-delay="100ms">
-                  <div class="first-part d-flex align-items-center">
-                    <div class="thumbnail">
-                      <img src="{{song.avatar}}">
-                    </div>
-                    <div class="content-">
-                      <h6>{{song.name}}</h6>
-                      <p>{{song.singer?.name}}</p>
-                    </div>
-                  </div>
-                  <audio preload="auto" controls>
-                    <source src="{{song.mp3}}">
-                  </audio>
-                </div>
-<!--              </div>-->
+          <div *ngFor="let song of song" class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
+            <div type="button" [routerLink]="['/song-detail',song.id]" class="first-part d-flex align-items-center">
+              <div class="thumbnail">
+                <img src="assets/img/bg-img/wt9.jpg" alt="">
+                <img src="{{song.avatar}}" alt="">
+              </div>
+              <div class="content-">
+                <h6>{{song.name}}</h6>
+                <p>{{song.singer?.name}}</p>
+              </div>
+            </div>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button (click)="songs1(song.id)" mat-menu-item>
+                <mat-icon>new</mat-icon>
+                <span>New Playlist</span>
+              </button>
+              <button mat-menu-item >
+                <mat-icon>add</mat-icon>
+                <!--                <span>Add Playlist</span>-->
+                <mat-form-field appearance="fill">
+                  <mat-label>Add Playlist</mat-label>
+                  <mat-select (selectionChange)="addPlayList(song,$event)">
+                    <mat-option *ngFor="let p of playList" value="{{p.id}}">{{p.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </button>
+              <!--                      <audio preload="auto" controls>-->
+              <!--                        <source src="{{song.mp3}}">-->
+              <!--                      </audio>-->
+            </mat-menu>
+          </div>
+
+
+          <!--          &lt;!&ndash; Single Top Item &ndash;&gt;-->
+          <!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="150ms">-->
+          <!--            <div class="first-part d-flex align-items-center">-->
+          <!--              <div class="thumbnail">-->
+          <!--                <img src="assets/img/bg-img/wt8.jpg" alt="">-->
+          <!--              </div>-->
+          <!--              <div class="content-">-->
+          <!--                <h6>Power Play</h6>-->
+          <!--                <p>In my mind</p>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <audio preload="auto" controls>-->
+          <!--              <source src="assets/audio/dummy-audio.mp3">-->
+          <!--            </audio>-->
+          <!--          </div>-->
+
+          <!--          &lt;!&ndash; Single Top Item &ndash;&gt;-->
+          <!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="200ms">-->
+          <!--            <div class="first-part d-flex align-items-center">-->
+          <!--              <div class="thumbnail">-->
+          <!--                <img src="assets/img/bg-img/wt9.jpg" alt="">-->
+          <!--              </div>-->
+          <!--              <div class="content-">-->
+          <!--                <h6>Cristinne Smith</h6>-->
+          <!--                <p>My Music</p>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <audio preload="auto" controls>-->
+          <!--              <source src="assets/audio/dummy-audio.mp3">-->
+          <!--            </audio>-->
+          <!--          </div>-->
+
+          <!--          &lt;!&ndash; Single Top Item &ndash;&gt;-->
+          <!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="250ms">-->
+          <!--            <div class="first-part d-flex align-items-center">-->
+          <!--              <div class="thumbnail">-->
+          <!--                <img src="assets/img/bg-img/wt10.jpg" alt="">-->
+          <!--              </div>-->
+          <!--              <div class="content-">-->
+          <!--                <h6>The Music Band</h6>-->
+          <!--                <p>Underground</p>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <audio preload="auto" controls>-->
+          <!--              <source src="assets/audio/dummy-audio.mp3">-->
+          <!--            </audio>-->
+          <!--          </div>-->
+
+          <!--          &lt;!&ndash; Single Top Item &ndash;&gt;-->
+          <!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="300ms">-->
+          <!--            <div class="first-part d-flex align-items-center">-->
+          <!--              <div class="thumbnail">-->
+          <!--                <img src="assets/img/bg-img/wt11.jpg" alt="">-->
+          <!--              </div>-->
+          <!--              <div class="content-">-->
+          <!--                <h6>Creative Lyrics</h6>-->
+          <!--                <p>Songs and stuff</p>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <audio preload="auto" controls>-->
+          <!--              <source src="assets/audio/dummy-audio.mp3">-->
+          <!--            </audio>-->
+          <!--          </div>-->
+
+          <!-- Single Top Item -->
+          <!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"-->
+          <!--               data-wow-delay="100ms">-->
+          <!--            <div class="first-part d-flex align-items-center">-->
+          <!--              <div class="thumbnail">-->
+          <!--                <img src="assets/img/bg-img/wt7.jpg" alt="">-->
+          <!--              </div>-->
+          <!--              <div class="content-">-->
+          <!--                <h6>Sam Smith</h6>-->
+          <!--                <p>Underground</p>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <audio preload="auto" controls>-->
+          <!--              <source src="assets/audio/dummy-audio.mp3">-->
+          <!--            </audio>-->
+          <!--          </div>-->
+
+          <!--          &lt;!&ndash; Single Top Item &ndash;&gt;-->
+          <!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"-->
+          <!--               data-wow-delay="150ms">-->
+          <!--            <div class="first-part d-flex align-items-center">-->
+          <!--              <div class="thumbnail">-->
+          <!--                <img src="assets/img/bg-img/wt8.jpg" alt="">-->
+          <!--              </div>-->
+          <!--              <div class="content-">-->
+          <!--                <h6>Power Play</h6>-->
+          <!--                <p>In my mind</p>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <audio preload="auto" controls>-->
+          <!--              <source src="assets/audio/dummy-audio.mp3">-->
+          <!--            </audio>-->
+          <!--          </div>-->
+
+          <!--          &lt;!&ndash; Single Top Item &ndash;&gt;-->
+          <!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"-->
+          <!--               data-wow-delay="200ms">-->
+          <!--            <div class="first-part d-flex align-items-center">-->
+          <!--              <div class="thumbnail">-->
+          <!--                <img src="assets/img/bg-img/wt9.jpg" alt="">-->
+          <!--              </div>-->
+          <!--              <div class="content-">-->
+          <!--                <h6>Cristinne Smith</h6>-->
+          <!--                <p>My Music</p>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <audio preload="auto" controls>-->
+          <!--              <source src="assets/audio/dummy-audio.mp3">-->
+          <!--            </audio>-->
+          <!--          </div>-->
+
+          <!--          &lt;!&ndash; Single Top Item &ndash;&gt;-->
+          <!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"-->
+          <!--               data-wow-delay="250ms">-->
+          <!--            <div class="first-part d-flex align-items-center">-->
+          <!--              <div class="thumbnail">-->
+          <!--                <img src="assets/img/bg-img/wt10.jpg" alt="">-->
+          <!--              </div>-->
+          <!--              <div class="content-">-->
+          <!--                <h6>The Music Band</h6>-->
+          <!--                <p>Underground</p>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <audio preload="auto" controls>-->
+          <!--              <source src="assets/audio/dummy-audio.mp3">-->
+          <!--            </audio>-->
+          <!--          </div>-->
+
+          <!--          &lt;!&ndash; Single Top Item &ndash;&gt;-->
+          <!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"-->
+          <!--               data-wow-delay="300ms">-->
+          <!--            <div class="first-part d-flex align-items-center">-->
+          <!--              <div class="thumbnail">-->
+          <!--                <img src="assets/img/bg-img/wt11.jpg" alt="">-->
+          <!--              </div>-->
+          <!--              <div class="content-">-->
+          <!--                <h6>Creative Lyrics</h6>-->
+          <!--                <p>Songs and stuff</p>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <audio preload="auto" controls>-->
+          <!--              <source src="assets/audio/dummy-audio.mp3">-->
+          <!--            </audio>-->
+          <!--          </div>-->
+
+          <!-- Single Top Item -->
+          <!--          <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"-->
+          <!--               data-wow-delay="350ms">-->
+          <!--            <div class="first-part d-flex align-items-center">-->
+          <!--              <div class="thumbnail">-->
+          <!--                <img src="assets/img/bg-img/wt12.jpg" alt="">-->
+          <!--              </div>-->
+          <!--              <div class="content-">-->
+          <!--                <h6>The Culture</h6>-->
+          <!--                <p>Pop Songs</p>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <audio preload="auto" controls>-->
+          <!--              <source src="assets/audio/dummy-audio.mp3">-->
+          <!--            </audio>-->
+          <!--          </div>-->
         </div>
       </div>
 
@@ -212,17 +318,38 @@
             <h2>Popular Artist</h2>
           </div>
           <!-- Single Artist -->
-          <div *ngFor="let s of singers" class="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="400ms">
+          <div *ngFor="let s of singers" class="single-artists d-flex align-items-center wow fadeInUp"
+               data-wow-delay="400ms">
             <div class="thumbnail">
               <img src="assets/img/bg-img/pa7.jpg" alt="">
             </div>
             <div class="content-">
               <p>{{s.name}}</p>
             </div>
+            <!--            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">-->
+            <!--              <mat-icon>more_vert</mat-icon>-->
+            <!--            </button>-->
+            <!--            <mat-menu #menu="matMenu">-->
+            <!--              <button mat-menu-item>-->
+            <!--                <mat-icon>new</mat-icon>-->
+            <!--                <span>New Playlist</span>-->
+            <!--              </button>-->
+            <!--              <button mat-menu-item >-->
+            <!--                <mat-icon>add</mat-icon>-->
+            <!--&lt;!&ndash;                <span>Add Playlist</span>&ndash;&gt;-->
+            <!--                <mat-form-field appearance="fill">-->
+            <!--                  <mat-label>Add Playlist</mat-label>-->
+            <!--                  <mat-select (selectionChange)="addPlayList(s,$event)">-->
+            <!--                    <mat-option *ngFor="let p of playList" value="{{p.id}}">{{p.name}}</mat-option>-->
+            <!--                  </mat-select>-->
+            <!--                </mat-form-field>-->
+            <!--              </button>-->
+
+            <!--            </mat-menu>-->
+
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- ##### Miscellaneous Area End ##### -->

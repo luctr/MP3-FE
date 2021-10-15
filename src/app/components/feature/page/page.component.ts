@@ -31,6 +31,7 @@ export class PageComponent implements OnInit {
     console.log(this.name);
     this.userService.findByName(this.name).subscribe(result => {
       this.user = result
+      // @ts-ignore
       this.id = result.id;
       // @ts-ignore
       localStorage.setItem('user_id', this.id);
@@ -44,7 +45,7 @@ export class PageComponent implements OnInit {
       console.log(error);
     })
     this.user = {
-      id: '',
+      id: 0,
       username: '',
       password: '',
       phoneNumber: '',

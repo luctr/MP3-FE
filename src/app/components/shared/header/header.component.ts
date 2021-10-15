@@ -43,6 +43,7 @@ export class HeaderComponent implements OnInit {
   })
   songs: Song[] = [];
 
+
   song: Song = {
     // @ts-ignore
     id: 0,
@@ -51,9 +52,10 @@ export class HeaderComponent implements OnInit {
     mp3: '',
     avatar: '',
     author: '',
+    // @ts-ignore
     user: {
-      id: this.songForm.value.user
-    },
+
+      id: this.songForm.value.user},
     songCategory: {
       // @ts-ignore
       id: this.songForm.value.songCategory
@@ -152,6 +154,7 @@ export class HeaderComponent implements OnInit {
   createSong(){
 
     if (this.songForm != null){
+
       this.song= {
 
         name : this.songForm.value.name,
@@ -159,11 +162,11 @@ export class HeaderComponent implements OnInit {
         mp3 : this.urlMP3,
         avatar:this.urlAvatar,
         author:this.songForm.value.author,
+        // @ts-ignore
         user :{
           id : this.id
         },
         songCategory :{
-          // @ts-ignore
           id: this.songForm.value.songCategory
         },
         singer:{

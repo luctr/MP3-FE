@@ -6,5 +6,5 @@ export interface Playlist {
   description : string;
   name : string;
   users: User;
-  song: Song;
+  song: Song[];
 }
