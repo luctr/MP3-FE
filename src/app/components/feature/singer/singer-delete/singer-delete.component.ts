@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SingerService} from "../../../../service/singer.service";
+import {SingerService} from "../../../../service/singer/singer.service";
 import {ActivatedRoute} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { Singer } from 'src/app/components/model/Singer';
@@ -55,7 +55,6 @@ export class SingerDeleteComponent implements OnInit {
     }
   }
   delete(){
-    console.log(this.id);
     // @ts-ignore
     this.singerService.delete(this.id).subscribe(abc =>{
       history.back()

@@ -1,0 +1,18 @@
+<div class="bg" >
+<h2 class="text-center">
+Comment </h2>
+<div class="col-md-8 offset-md-2">
+  <input type="text" class="form-control" [formControl]="comments" (change)="change()"*ngIf="userName != ''" >
+
+  <ul class="cg">
+    <hr>
+    <li [class.complete]="todo.complete"
+        *ngFor="let todo of todos; index as i">
+      <div [ngStyle]="{color: '#6699FF'}"class="mes1">{{todo.user?.username}}</div>
+      <div  [ngStyle]="{color: '#555555'}" class="mes">{{todo.name}}</div>
+      <hr>
+    </li>
+  </ul>
+</div>
+  <h5 class="but">Have fun listening to music!</h5>
+</div>

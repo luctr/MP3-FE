@@ -1,0 +1,23 @@
+<h1>List</h1>
+<table>
+  <tr>
+    <td>STT</td>
+    <td>Tên</td>
+    <td>sex</td>
+    <td>dateOfBirth</td>
+    <td>story</td>
+    <td>yearOfBirth</td>
+    <td>musicBand</td>
+    <td>MoreInformation</td>
+  </tr>
+  <tr *ngFor="let singer of singers; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{singer.name}}</td>
+    <td>{{singer.sex}}</td>
+    <td>{{singer.dateOfBirth}}</td>
+    <td>{{singer.story}}</td>
+    <td>{{singer.yearOfBirth}}</td>
+    <td>{{singer.musicBand}}</td>
+    <td>{{singer.MoreInformation}}</td>
+  </tr>
+</table>

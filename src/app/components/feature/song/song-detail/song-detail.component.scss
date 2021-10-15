@@ -1,0 +1,28 @@
+body, html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTeCOn2UzSJqwaXc_iGFMsjqh0SeFIchPEbw&usqp=CAU");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cg {
+  margin-left: 800px;
+}
+.va {
+  margin-left: 50px;
+  font-family: "Times New Roman" ;
+}
+
+.form-group {
+  font-size: 17px;
+}

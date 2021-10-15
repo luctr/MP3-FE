@@ -1,16 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {SingerService} from "../../../service/singer.service";
 import {SongService} from "../../../service/song.service";
 import {ActivatedRoute} from "@angular/router";
 import {Singer} from "../../model/Singer";
-import {PlaylistService} from "../../../service/playlist.service";
 import {FormControl, FormGroup} from "@angular/forms";
-import {UserService} from "../../../service/user.service";
 import {CreatePlaylistComponent} from "../create-playlist/create-playlist.component";
 import {MatDialog} from "@angular/material/dialog";
 import { Song } from '../../model/Song';
 import { Playlist } from '../../model/Playlist';
-import {User} from "../../model/User";
+import { SingerService } from 'src/app/service/singer/singer.service';
+import { UserService } from 'src/app/service/user/user.service';
+import {PlaylistService} from "../../../service/playlist/playlist.service";
 
 @Component({
   selector: 'app-week-top',
@@ -23,6 +22,7 @@ export class WeekTopComponent implements OnInit {
   songs: Song[] = [];
 
   singers: Singer [] = [];
+
 
   newPlaylist: Playlist = {
     id: 0,
@@ -112,7 +112,9 @@ export class WeekTopComponent implements OnInit {
       this.songs.push(song);
       this.newPlaylist.name = this.playListForm.value.name;
       this.newPlaylist.description = this.playListForm.value.description;
+      // @ts-ignore
       this.newPlaylist.users.id = this.idUser;
+      // @ts-ignore
       this.newPlaylist.song = this.songs;
       this.playlistService.edit(event.value, this.newPlaylist).subscribe();
     })
@@ -138,15 +140,5 @@ export class WeekTopComponent implements OnInit {
     this.songService.createSong(this.topForm.value).subscribe((data) => {
     })
   }
-
-  // getCount(id:number) {
-  //   this.songService.findByIdSong(id).subscribe((data) => {
-  //     console.log(data.count)
-  //     this.topForm = new FormGroup({
-  //       count: new FormControl(data.count),
-  //     })
-  //     this.saveCount();
-  //   })
-  // }
 
 }

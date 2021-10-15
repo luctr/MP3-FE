@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Singer} from "../components/model/Singer";
 const API = 'http://localhost:8080/singer'
+import {Singer} from "../../components/model/Singer";
+
 @Injectable({
   providedIn: 'root'
 })

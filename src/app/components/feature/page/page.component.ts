@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../../service/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { User } from '../../model/User';
+import { UserService } from 'src/app/service/user/user.service';
 
 @Component({
   selector: 'app-page',

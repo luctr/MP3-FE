@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Track} from "ngx-audio-player";
+import { PlaylistService } from 'src/app/service/playlist/playlist.service';
 import {Playlist} from "../../model/Playlist";
-import {PlaylistService} from "../../../service/playlist.service";
-import {Song} from "../../model/Song";
 
 @Component({
   selector: 'app-music-player',

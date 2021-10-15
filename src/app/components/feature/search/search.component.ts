@@ -1,10 +1,10 @@
 import {Component, OnInit,} from '@angular/core';
-import {SingerService} from "../../../service/singer.service";
 import {SongService} from "../../../service/song.service";
-import {PlaylistService} from "../../../service/playlist.service";
 import {Singer} from "../../model/Singer";
 import {Playlist} from "../../model/Playlist";
 import { Song } from '../../model/Song';
+import { SingerService } from 'src/app/service/singer/singer.service';
+import { PlaylistService } from 'src/app/service/playlist/playlist.service';
 
 @Component({
   selector: 'app-search',
@@ -63,7 +63,5 @@ export class SearchComponent implements OnInit {
       console.log(error);
     });
   }
-
-
 }
 

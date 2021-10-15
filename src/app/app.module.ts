@@ -33,9 +33,7 @@ import {MatStepperModule} from "@angular/material/stepper";
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SearchComponent } from './components/feature/search/search.component';
 import {MatMenuModule} from "@angular/material/menu";
-import {InterceptorService} from "./service/interceptor.service";
-import {ListSongComponent} from "./components/song/list-song/list-song.component";
-import {CreateSongComponent} from "./components/song/create-song/create-song.component";
+import {InterceptorService} from "./service/interceptor/interceptor.service";
 
 import { ListPlaylistComponent } from './components/feature/list-playlist/list-playlist.component';
 import { MusicPlayerComponent } from './components/feature/music-player/music-player.component';
@@ -47,9 +45,13 @@ import { PlayListUserIdComponent } from './components/feature/play-list-user-id/
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import {MatDialogModule} from "@angular/material/dialog";
-// import { SongListComponent } from './components/feature/song/song-list/song-list.component';
 // import { SongEditComponent } from './components/feature/song/song-edit/song-edit.component';
 // import { SongDeleteComponent } from './components/feature/song/song-delete/song-delete.component';
+import { ListComponent } from './components/feature/singer/list/list.component';
+import { SongDetailComponent } from './components/feature/song/song-detail/song-detail.component';
+import { TopSongComponent } from './components/feature/song/top-song/top-song.component';
+import { CommentsComponent } from './components/feature/comments/comments.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,8 +65,6 @@ import {MatDialogModule} from "@angular/material/dialog";
     WeekTopComponent,
     AppComponent,
     LoginFormComponent,
-    ListSongComponent,
-    CreateSongComponent,
     WeekTopComponent,
     PageComponent,
     SingerComponent,
@@ -79,9 +79,13 @@ import {MatDialogModule} from "@angular/material/dialog";
     SongTop6Component,
     SongUserIdComponent,
     PlayListUserIdComponent,
-    // SongListComponent,
     // SongEditComponent,
     // SongDeleteComponent
+    CreatePlaylistComponent,
+    ListComponent,
+    SongDetailComponent,
+    TopSongComponent,
+    CommentsComponent,
   ],
   imports: [
     BrowserModule,

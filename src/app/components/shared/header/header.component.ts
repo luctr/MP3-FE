@@ -3,15 +3,13 @@
 import {Router} from "@angular/router";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {SongService} from "../../../service/song.service";
-import {UserService} from "../../../service/user.service";
-
 import {SongCategoryService} from "../../../service/song-category.service";
-import {SingerService} from "../../../service/singer.service";
-
 import {FormControl, FormGroup} from "@angular/forms";
 import {finalize} from "rxjs/operators";
 import {Component, OnInit} from "@angular/core";
 import { Song } from "../../model/Song";
+import { UserService } from "src/app/service/user/user.service";
+import { SingerService } from "src/app/service/singer/singer.service";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

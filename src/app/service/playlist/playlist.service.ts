@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import { Playlist } from '../components/model/Playlist';
+import {Playlist} from "../../components/model/Playlist";
 const API =  'http://localhost:8080/playlists'
 @Injectable({
   providedIn: 'root'

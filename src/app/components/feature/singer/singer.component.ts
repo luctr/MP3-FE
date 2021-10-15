@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { SingerService } from 'src/app/service/singer.service';
-import { Singer } from '../../model/Singer';
+import {Singer} from "../../model/Singer";
+import {ActivatedRoute} from "@angular/router";
+import {SingerService} from "../../../service/singer/singer.service";
+import {error} from "@angular/compiler/src/util";
 
 @Component({
   selector: 'app-singer',
