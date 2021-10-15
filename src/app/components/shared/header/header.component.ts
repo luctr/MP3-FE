@@ -10,8 +10,7 @@ import {finalize} from "rxjs/operators";
 import {User} from "../../model/User";
 import {Singer} from "../../model/singer";
 import {Song} from "../../model/song";
-import {ToastrService} from "ngx-toastr";
-import {HttpErrorResponse} from "@angular/common/http";
+
 
 @Component({
   selector: 'app-header',
@@ -23,21 +22,22 @@ export class HeaderComponent implements OnInit {
   img: any;
   selectedImage: any;
   url: any;
+  mp3: any;
   id: any;
   idUser: any;
   // @ts-ignore
   songCategories: SongCategory[];
   // @ts-ignore
   singers: Singer[];
-  // @ts-ignore   // @ts-ignore
+  // @ts-ignore  ;'
   users1: User[]
   songForm: FormGroup = new FormGroup({
-    name: new FormControl(),
+    name: new FormControl(Validators.required),
     description: new FormControl(),
-    author: new FormControl(),
+    author: new FormControl(Validators.required),
     user: new FormControl(),
-    songCategory: new FormControl(),
-    singer: new FormControl(),
+    songCategory: new FormControl(Validators.required),
+    singer: new FormControl(Validators.required),
     count: new FormControl(),
   })
   songs: Song[] = [];
@@ -69,7 +69,7 @@ export class HeaderComponent implements OnInit {
               private userService: UserService,
               private songCategoryService: SongCategoryService,
               private singer: SingerService,
-            ) {
+  ) {
   }
 
   ngOnInit(): void {
@@ -94,14 +94,19 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  sub() {
+  sub(typeFile: string) {
     if (this.selectedImage != null) {
       const filePath = `avatar/${this.selectedImage.name.split('.').splice(0, -1).join('.')}_${new Date().getTime()}`;
       const fileRef = this.storage.ref(filePath);
       this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
         finalize(() => (
           fileRef.getDownloadURL().subscribe(url => {
-            this.url = url
+            if (typeFile === "IMG") {
+              this.url = url
+            } else {
+              this.mp3 = url
+            }
+
           })))
       )
         .subscribe();
@@ -111,11 +116,16 @@ export class HeaderComponent implements OnInit {
   showPreview(event: any) {
     if (event.target.files && event.target.files[0]) {
       this.selectedImage = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = (e: any) => this.img = e.target.result;
-      reader.readAsDataURL(event.target.files[0]);
-      this.selectedImage = event.target.files[0];
-      this.sub()
+
+      if (this.selectedImage.type.indexOf("mpeg") === -1) {
+        const reader = new FileReader();
+        reader.onload = (e: any) => this.img = e.target.result;
+        reader.readAsDataURL(event.target.files[0]);
+        this.selectedImage = event.target.files[0];
+        this.sub("IMG");
+        return;
+      }
+      this.sub("Audio")
     } else {
       this.selectedImage = null;
     }
@@ -126,9 +136,9 @@ export class HeaderComponent implements OnInit {
     if (this.songForm != null) {
       this.song = {
 
-        name: this.songForm.value.name ,
+        name: this.songForm.value.name,
         description: this.songForm.value.description,
-        mp3: this.url,
+        mp3: this.mp3,
         avatar: this.url,
         author: this.songForm.value.author,
         user: { // @ts-ignore
@@ -143,7 +153,8 @@ export class HeaderComponent implements OnInit {
         count: this.songForm.value.count
       }
       this.songService.createSong(this.song).subscribe((data: Song) => {
-       this.songForm.reset(this.createSong())
+        this.songForm.reset();
+        this.router.navigate(['/song/list']);
       });
     }
   }

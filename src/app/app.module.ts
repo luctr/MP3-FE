@@ -99,6 +99,7 @@ import {MatDividerModule} from "@angular/material/divider";
     MatDialogModule,
     MatDividerModule,
 
+
   ],
   providers: [{provide: APP_BASE_HREF, useValue : '/' },
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}

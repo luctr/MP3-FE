@@ -72,7 +72,7 @@ export class DeleteSongComponent implements OnInit {
   }
   deleteSong(){
     this.songService.deleteSong(this.id).subscribe(data => {
-      this.router.navigate(['/song/list'])
+      this.router.navigate(['/song/list']);
     }) ;
   }
 

@@ -29,7 +29,6 @@
             <label class="form-label">File MP3</label>
             <div class="input-group has-validation">
               <input type="file" class="form-control" (change)="showPreview($event)" #fileUploader aria-describedby="inputGroupPrepend" >
-              <img [src]="img" (click)="fileUploader.click()"/>
               <img [src]="songFormEdit.get('mp3')?.value" *ngIf="img == null"/>
             </div>
 
@@ -62,7 +61,7 @@
           </div>
           <div class="col-12">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" (click)="edit()">Save changes</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="edit()">Save changes</button>
           </div>
         </form>
 

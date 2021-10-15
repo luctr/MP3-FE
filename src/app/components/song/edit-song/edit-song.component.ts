@@ -20,6 +20,7 @@ export class EditSongComponent implements OnInit {
   img: any;
   selectedImage: any;
   url: any;
+  mp3: any;
   id: any;
   idSongCategory:any;
   idSinger:any;
@@ -56,14 +57,19 @@ export class EditSongComponent implements OnInit {
    })
   }
 
-  sub() {
+  sub(typeFile: string) {
     if (this.selectedImage != null) {
       const filePath = `avatar/${this.selectedImage.name.split('.').splice(0, -1).join('.')}_${new Date().getTime()}`;
       const fileRef = this.storage.ref(filePath);
       this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
         finalize(() => (
           fileRef.getDownloadURL().subscribe(url => {
-            this.url = url
+            if (typeFile === "IMG") {
+              this.url = url
+            } else {
+              this.mp3 = url
+            }
+
           })))
       )
         .subscribe();
@@ -73,11 +79,16 @@ export class EditSongComponent implements OnInit {
   showPreview( event: any) {
     if (event.target.files && event.target.files[0]) {
       this.selectedImage = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = (e: any) => this.img = e.target.result;
-      reader.readAsDataURL(event.target.files[0]);
-      this.selectedImage = event.target.files[0];
-      this.sub()
+
+      if (this.selectedImage.type.indexOf("mpeg") === -1) {
+        const reader = new FileReader();
+        reader.onload = (e: any) => this.img = e.target.result;
+        reader.readAsDataURL(event.target.files[0]);
+        this.selectedImage = event.target.files[0];
+        this.sub("IMG");
+        return;
+      }
+      this.sub("Audio")
     } else {
       this.selectedImage = null;
     }
@@ -119,8 +130,8 @@ export class EditSongComponent implements OnInit {
       id: this.id,
       name  : this.songFormEdit.value.name,
       description  : this.songFormEdit.value.name,
-      mp3  : this.songFormEdit.value.name,
-      avatar  : this.songFormEdit.value.name,
+      mp3: this.mp3,
+      avatar: this.url,
       author  : this.songFormEdit.value.name,
       songCategory :this.songFormEdit.value.songCategory = {
         id : this.songFormEdit.value.songCategory
@@ -131,6 +142,7 @@ export class EditSongComponent implements OnInit {
     }
     // @ts-ignore
     this.songService.updateSong(this.id,this.songs).subscribe(data =>{
+      alert('successful edit ')
       this.router.navigate(['/song/list'])
     })
     this.name = this.songFormEdit.value.singer;

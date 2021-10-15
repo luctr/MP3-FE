@@ -46,13 +46,13 @@
               <div class="modal-body">
 
 
-                <form class="row g-3 needs-validation" [formGroup]="songForm" (ngSubmit)="createSong()" novalidate>
+                <form class="row g-3 needs-validation" [formGroup]="songForm" (ngSubmit)="createSong()">
                   <div class="col-md-6">
                     <label class="form-label">Name Song</label>
-                    <input type="text" class="form-control" formControlName="name">
-                    <!--                    <div class="valid-feedback">-->
-                    <!--                      Looks good!-->
-                    <!--                    </div>-->
+                    <input type="text" class="form-control" formControlName="name" required="required">
+                    <div *ngIf="songForm.controls.name.errors">
+                      name is required*
+                    </div>
                   </div>
                   <div class="col-md-6">
                     <label class="form-label">description</label>
@@ -63,18 +63,23 @@
                     <label class="form-label">File MP3</label>
                     <div class="input-group has-validation">
                       <input type="file" class="form-control" (change)="showPreview($event)" #fileUploader
-                             aria-describedby="inputGroupPrepend">
-                      <img [src]="img" (click)="fileUploader.click()"/></div>
-
+                             aria-describedby="inputGroupPrepend" required="required">
+                    </div>
                   </div>
                   <div class="col-md-6">
                     <label class="form-label">avatar</label>
-                    <input type="file" class="form-control" (change)="showPreview($event)" #fileUploader>
-                    <img [src]="img" (click)="fileUploader.click()"/></div>
-
+                    <input type="file" class="form-control" (change)="showPreview($event)" #fileUploader
+                           required="required">
+                  </div>
+                  <div class="col-md-12">
+                    <img [src]="img" (click)="fileUploader.click()"/>
+                  </div>
                   <div class="col-md-6">
                     <label class="form-label"> author</label>
-                    <input type="text" class="form-control" formControlName="author">
+                    <input type="text" class="form-control" formControlName="author" required="required">
+                    <div *ngIf="songForm.controls.author.errors">
+                      author is required*
+                    </div>
                   </div>
                   <div class="col-md-6"></div>
                   <div class="col-md-3">
@@ -94,7 +99,7 @@
                   </div>
                   <div class="col-12">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" (reset)="createSong()">Save changes</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="createSong()">Save changes</button>
                   </div>
                 </form>
 
@@ -109,7 +114,7 @@
 
       </li>
       <li class="nav-item" *ngIf="userName != ''">
-        <a  class="nav-link" [routerLink]="['/song/list']">List Song</a>
+        <a class="nav-link" [routerLink]="['/song/list']">List Song</a>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
