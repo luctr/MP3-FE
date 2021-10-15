@@ -100,6 +100,7 @@ import {MatDividerModule} from "@angular/material/divider";
     MatDividerModule,
 
 
+
   ],
   providers: [{provide: APP_BASE_HREF, useValue : '/' },
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}

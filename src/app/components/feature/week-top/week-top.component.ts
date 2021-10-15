@@ -10,23 +10,15 @@ import {Song} from "../../model/song";
   styleUrls: ['./week-top.component.scss']
 })
 export class WeekTopComponent implements OnInit {
-  songg: Song [] = [];
 
-  constructor(private songService: SongService,
-              private activeRouter: ActivatedRoute) {
-    this.activeRouter.paramMap.subscribe(paraMap => {
-      const id = paraMap.get('id');
-    });
+  constructor() {
+
+
   }
 
   ngOnInit() {
-    this.getAll();
+
   }
 
-  getAll() {
-    return this.songService.getAllSong().subscribe((data: Song[]) => {
-      this.songg = data;
-    });
-  }
 
 }

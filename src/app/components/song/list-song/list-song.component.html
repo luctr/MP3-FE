@@ -1,39 +1,11 @@
-<app-header></app-header>  <br>
-<!--<div align="center">-->
-<!--<div class="col-6" style="text-align: center" >-->
+<app-header></app-header>
 
-<!--  <div>-->
-<!--    <button type="button" class="btn btn-secondary" data-dismiss="modal" [routerLink]="['/']">Back</button>-->
-<!--  </div>-->
-<!--  <div class="new-hits-area mb-100" >-->
-<!--    <div class="section-heading text-left mb-50 wow fadeInUp col-6" data-wow-delay="50ms">-->
-<!--      <h2>List Song</h2>-->
-<!--    </div>-->
-<!--    <div *ngFor="let song of song"-->
-<!--         class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"-->
-<!--         data-wow-delay="100ms">-->
-<!--      <div type="button" class="first-part d-flex align-items-center">-->
-<!--        <div class="thumbnail">-->
-<!--          <img src="{{song.avatar}}">-->
-<!--        </div>-->
-<!--        <div class="content-">-->
-<!--          <h6>{{song.name}}</h6>-->
-<!--          <p>{{song.singer?.name}}</p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <audio preload="auto" controls>-->
-<!--        <source src="{{song.mp3}}">-->
-<!--      </audio>-->
-<!--      <span class="material-icons" data-toggle="modal" data-target="#exampleModalCenter" [routerLink]="['/song/edit',song.id]">edit</span>-->
-<!--      <span class="material-icons" data-toggle="modal" data-target="#exampleModalCenter" [routerLink]="['/song/delete',song.id]">delete</span>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+<br>
 
-<div align="center">
+<div align="center" style="background-image: url('https://images.wallpaperscraft.com/image/single/dj_headphones_installation_122020_3840x2160.jpg')">
 <div class="col-8" style="text-align: center" >
 
-  <table>
+  <table >
     <tr  *ngFor="let song of song"
          class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
          data-wow-delay="100ms">
@@ -53,3 +25,4 @@
   </table>
 </div>
 </div>
+<app-footer></app-footer>
